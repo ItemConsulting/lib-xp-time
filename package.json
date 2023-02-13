@@ -40,7 +40,9 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "enonic-types": "^7.11.1"
+    "@item-enonic-types/lib-testing": "^7.11.3",
+    "enonic-types": "^7.11.1",
+    "lib": "^4.3.3"
   },
   "browserslist": [
     "extends browserslist-config-enonic"

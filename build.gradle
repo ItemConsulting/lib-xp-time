@@ -10,6 +10,7 @@ targetCompatibility = JavaVersion.VERSION_11
 
 dependencies {
   compile "com.enonic.xp:portal-api:${xpVersion}"
+  implementation "com.enonic.xp:testing:7.11.3"
 }
 
 repositories {

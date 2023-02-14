@@ -1,13 +1,5 @@
-import {DateTimeFormatter} from "/lib/time/Util";
-import {Month} from "/lib/time/Month";
-import {LocalDate} from "/lib/time/LocalDate";
-import {LocalTime} from "/lib/time/LocalTime";
-import {ZoneOffset} from "/lib/time/ZoneOffset";
-import {Instant} from "/lib/time/Instant";
-import {ZoneId} from "/lib/time/ZoneId";
-import {DayOfWeek} from "/lib/time/DayOfWeek";
-import {OffsetDateTime} from "/lib/time/OffsetDateTime";
-import {ZonedDateTime} from "/lib/time/ZonedDateTime";
+import type {DateTimeFormatter, Month, LocalDate, LocalTime, ZoneOffset,
+  Instant, ZoneId, DayOfWeek, OffsetDateTime, ZonedDateTime} from "/lib/time";
 
 /**
  * LocalDateTime is an immutable date-time object that represents a date-time

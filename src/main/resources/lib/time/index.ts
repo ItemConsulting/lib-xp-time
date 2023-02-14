@@ -1,7 +1,22 @@
-import {LocalDate} from "/lib/time/LocalDate";
-import {LocalDateTime} from "/lib/time/LocalDateTime";
-import {ZonedDateTime} from "/lib/time/ZonedDateTime";
-import {DateTimeFormatter, Locale} from "/lib/time/Util";
+import {LocalDate} from "/lib/time/local-date";
+import {LocalDateTime} from "/lib/time/local-date-time";
+import {ZonedDateTime} from "/lib/time/zoned-date-time";
+import {Locale} from "/lib/time/util";
+import {DateTimeFormatter} from "/lib/time/format/date-time-formatter";
+
+export type {DayOfWeek} from "/lib/time/day-of-week";
+export type {LocalDateTime} from "/lib/time/local-date-time";
+export type {ZonedDateTime} from "/lib/time/zoned-date-time";
+export type {Locale} from "/lib/time/util";
+export type {DateTimeFormatter} from "/lib/time/format/date-time-formatter";
+export type {Instant} from "/lib/time/instant";
+export type {LocalDate} from "/lib/time/local-date";
+export type {LocalTime} from "/lib/time/local-time";
+export type {Month} from "/lib/time/month";
+export type {OffsetDateTime} from "/lib/time/offset-date-time";
+export type {OffsetTime} from "/lib/time/offset-time";
+export type {ZoneId} from "/lib/time/zone-id";
+export type {ZoneOffset} from "/lib/time/zone-offset";
 
 /**
  * Format a date to a string
@@ -28,40 +43,6 @@ function isDateWithoutTime(dateStr: string): boolean {
 
 function isZonedDateTime(date: string): boolean {
   return date.charAt(date.length - 1) === "Z" || date.indexOf("+") !== -1;
-}
-
-export function createTimeElementMarkup({ date, pattern, locale }: CreateTimeElementMarkup): string {
-  return date ? `<time datetime="${date}">${formatDate({ date, pattern, locale })}</time>` : "";
-}
-
-export function createTimeIntervalMarkup(
-  { startDate, endDate }: CreateTimeIntervalMarkupParams,
-  locale: string
-): string | undefined {
-  if (startDate || endDate) {
-    const start = createTimeElementMarkup({
-      date: startDate,
-      pattern: "yyyy",
-      locale,
-    });
-    const end = createTimeElementMarkup({
-      date: endDate,
-      pattern: "yyyy",
-      locale,
-    });
-    return `${start} - ${end}`;
-  }
-  return undefined;
-}
-interface CreateTimeIntervalMarkupParams {
-  startDate?: string | undefined;
-  endDate?: string | undefined;
-}
-
-interface CreateTimeElementMarkup {
-  date?: string;
-  pattern: string;
-  locale: string;
 }
 
 export interface FormatDateParams {

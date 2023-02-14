@@ -1,14 +1,4 @@
-import {ZoneId} from "/lib/time/ZoneId";
-import {ZoneOffset} from "/lib/time/ZoneOffset";
-import {LocalDate} from "/lib/time/LocalDate";
-import {LocalTime} from "/lib/time/LocalTime";
-import {LocalDateTime} from "/lib/time/LocalDateTime";
-import {Instant} from "/lib/time/Instant";
-import {DateTimeFormatter} from "/lib/time/Util";
-import {OffsetDateTime} from "/lib/time/OffsetDateTime";
-import {ZonedDateTime} from "/lib/time/ZonedDateTime";
-import {DayOfWeek} from "/lib/time/DayOfWeek";
-import {Month} from "/lib/time/Month";
+import type {ZoneId, ZoneOffset, LocalDate, LocalTime, Instant, DateTimeFormatter, OffsetDateTime} from "/lib/time";
 
 /**
  * A time without a time-zone in the ISO-8601 calendar system, such as 10:15:30.

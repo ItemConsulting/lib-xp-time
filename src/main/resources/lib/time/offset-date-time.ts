@@ -1,14 +1,5 @@
-import {ZoneId} from "/lib/time/ZoneId";
-import {ZoneOffset} from "/lib/time/ZoneOffset";
-import {LocalDate} from "/lib/time/LocalDate";
-import {LocalTime} from "/lib/time/LocalTime";
-import {LocalDateTime} from "/lib/time/LocalDateTime";
-import {Instant} from "/lib/time/Instant";
-import {DateTimeFormatter} from "/lib/time/Util";
-import {ZonedDateTime} from "/lib/time/ZonedDateTime";
-import {DayOfWeek} from "/lib/time/DayOfWeek";
-import {Month, MonthNumber} from "/lib/time/Month";
-import {OffsetTime} from "/lib/time/OffsetTime";
+import type {ZoneId, ZoneOffset, LocalDate, LocalTime, LocalDateTime,
+  Instant, DateTimeFormatter, ZonedDateTime, DayOfWeek, Month, OffsetTime} from "/lib/time";
 
 /**
  * A date-time with an offset from UTC/Greenwich in the ISO-8601 calendar system, such as 2007-12-03T10:15:30+01:00.

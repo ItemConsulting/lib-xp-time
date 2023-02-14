@@ -1,10 +1,4 @@
-import {ZoneId} from "/lib/time/ZoneId";
-
-/**
- * A Locale object represents a specific geographical, political, or cultural region.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html}
- */
-export const Locale = Java.type<LocaleConstructor>("java.util.Locale");
+import type {ZoneId, Locale} from "/lib/time";
 
 /**
  * Formatter for printing and parsing date-time objects.
@@ -37,12 +31,4 @@ export interface DateTimeFormatterConstructor {
   RFC_1123_DATE_TIME: DateTimeFormatter;
   ofPattern(pattern: string): DateTimeFormatter;
   ofPattern(pattern: string, locale?: Locale): DateTimeFormatter;
-}
-
-export interface LocaleConstructor {
-  new (language: string): Locale;
-}
-
-export interface Locale {
-  getSubLocale(): string;
 }

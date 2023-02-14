@@ -58,7 +58,7 @@ function addTypeScriptSupport(cfg) {
     exclude: /node_modules/,
     loader: "ts-loader",
     options: {
-      configFile: "src/main/resources/tsconfig.server.json",
+      //configFile: "src/main/resources/tsconfig.server.json",
     },
   };
 

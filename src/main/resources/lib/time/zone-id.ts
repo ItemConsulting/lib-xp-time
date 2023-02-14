@@ -1,4 +1,4 @@
-import {ZoneOffset} from "/lib/time/ZoneOffset";
+import type {ZoneOffset} from "/lib/time";
 
 /**
  * A time-zone ID, such as Europe/Paris.
@@ -7,8 +7,8 @@ import {ZoneOffset} from "/lib/time/ZoneOffset";
 export const ZoneId = Java.type<ZoneIdConstructor>("java.time.ZoneId");
 
 export interface ZoneIdConstructor {
-  SHORT_IDS: Map<string, string>;
-  getAvailableZoneIds(): Set<string>;
+  SHORT_IDS: Record<string, string>;
+  getAvailableZoneIds(): ReadonlyArray<string>;
   of(zoneId: string): ZoneId;
   of(zoneId: string, aliasMap: Map<string, string>): ZoneId;
   ofOffset(prefix: string, offset: ZoneOffset): ZoneId;

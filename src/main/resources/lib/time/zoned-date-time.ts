@@ -1,14 +1,5 @@
-import {DateTimeFormatter} from "/lib/time/Util";
-import {ZoneId} from "/lib/time/ZoneId";
-import {ZoneOffset} from "/lib/time/ZoneOffset";
-import {LocalDate} from "/lib/time/LocalDate";
-import {LocalTime} from "/lib/time/LocalTime";
-import {LocalDateTime} from "/lib/time/LocalDateTime";
-import {Instant} from "/lib/time/Instant";
-import {OffsetDateTime} from "/lib/time/OffsetDateTime";
-import {DayOfWeek} from "/lib/time/DayOfWeek";
-import {Month} from "/lib/time/Month";
-import {OffsetTime} from "/lib/time/OffsetTime";
+import type {DateTimeFormatter, ZoneId, ZoneOffset, LocalDate, LocalTime, LocalDateTime,
+  Instant, OffsetDateTime, DayOfWeek, Month} from "/lib/time";
 
 /**
  * ZonedDateTime is an immutable representation of a date-time with a time-zone.

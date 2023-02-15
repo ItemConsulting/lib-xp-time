@@ -1,4 +1,3 @@
-
 /**
  * A time-zone offset from Greenwich/UTC, such as +02:00.
  *

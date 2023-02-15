@@ -1,5 +1,16 @@
-import type {ZoneId, ZoneOffset, LocalDate, LocalTime, LocalDateTime,
-  Instant, DateTimeFormatter, ZonedDateTime, DayOfWeek, Month, OffsetTime} from "/lib/time";
+import type {
+  ZoneId,
+  ZoneOffset,
+  LocalDate,
+  LocalTime,
+  LocalDateTime,
+  Instant,
+  DateTimeFormatter,
+  ZonedDateTime,
+  DayOfWeek,
+  Month,
+  OffsetTime,
+} from "/lib/time";
 
 /**
  * A date-time with an offset from UTC/Greenwich in the ISO-8601 calendar system, such as 2007-12-03T10:15:30+01:00.
@@ -14,7 +25,16 @@ export interface OffsetDateTimeConstructor {
   MIN: OffsetDateTime;
   now(): OffsetDateTime;
   now(zone: ZoneId): OffsetDateTime;
-  of(year: number, month: number, dayOfMonth: number, hour: number, minute: number, second: number, nanoOfSecond: number, offset: ZoneOffset): OffsetDateTime;
+  of(
+    year: number,
+    month: number,
+    dayOfMonth: number,
+    hour: number,
+    minute: number,
+    second: number,
+    nanoOfSecond: number,
+    offset: ZoneOffset
+  ): OffsetDateTime;
   of(date: LocalDate, time: LocalTime, offset: ZoneOffset): OffsetDateTime;
   of(dateTime: LocalDateTime, offset: ZoneOffset): OffsetDateTime;
   ofInstant(instant: Instant, zone: ZoneId): OffsetDateTime;

@@ -4,12 +4,12 @@
  */
 export const DayOfWeek = Java.type<DayOfWeekConstructor>("java.time.DayOfWeek");
 
-export type WeekDayNumber = 1|2|3|4|5|6|7;
+export type WeekDayNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export interface DayOfWeekConstructor {
   of(dayOfWeek: WeekDayNumber): DayOfWeek;
 }
 
 export interface DayOfWeek {
- getValue(): WeekDayNumber;
+  getValue(): WeekDayNumber;
 }

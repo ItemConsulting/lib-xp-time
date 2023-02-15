@@ -1,4 +1,4 @@
-import type {ZoneId, Instant, DateTimeFormatter, LocalDateTime, LocalDate, ZoneOffset, OffsetTime} from "/lib/time";
+import type { ZoneId, Instant, DateTimeFormatter, LocalDateTime, LocalDate, ZoneOffset, OffsetTime } from "/lib/time";
 
 /**
  * A time without a time-zone in the ISO-8601 calendar system, such as 10:15:30.

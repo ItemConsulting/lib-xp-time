@@ -1,22 +1,22 @@
-import {LocalDate} from "/lib/time/local-date";
-import {LocalDateTime} from "/lib/time/local-date-time";
-import {ZonedDateTime} from "/lib/time/zoned-date-time";
-import {Locale} from "/lib/time/util";
-import {DateTimeFormatter} from "/lib/time/format/date-time-formatter";
+import { LocalDate } from "/lib/time/local-date";
+import { LocalDateTime } from "/lib/time/local-date-time";
+import { ZonedDateTime } from "/lib/time/zoned-date-time";
+import { Locale } from "/lib/time/util";
+import { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
 
-export type {DayOfWeek} from "/lib/time/day-of-week";
-export type {LocalDateTime} from "/lib/time/local-date-time";
-export type {ZonedDateTime} from "/lib/time/zoned-date-time";
-export type {Locale} from "/lib/time/util";
-export type {DateTimeFormatter} from "/lib/time/format/date-time-formatter";
-export type {Instant} from "/lib/time/instant";
-export type {LocalDate} from "/lib/time/local-date";
-export type {LocalTime} from "/lib/time/local-time";
-export type {Month} from "/lib/time/month";
-export type {OffsetDateTime} from "/lib/time/offset-date-time";
-export type {OffsetTime} from "/lib/time/offset-time";
-export type {ZoneId} from "/lib/time/zone-id";
-export type {ZoneOffset} from "/lib/time/zone-offset";
+export type { DayOfWeek } from "/lib/time/day-of-week";
+export type { LocalDateTime } from "/lib/time/local-date-time";
+export type { ZonedDateTime } from "/lib/time/zoned-date-time";
+export type { Locale } from "/lib/time/util";
+export type { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
+export type { Instant } from "/lib/time/instant";
+export type { LocalDate } from "/lib/time/local-date";
+export type { LocalTime } from "/lib/time/local-time";
+export type { Month } from "/lib/time/month";
+export type { OffsetDateTime } from "/lib/time/offset-date-time";
+export type { OffsetTime } from "/lib/time/offset-time";
+export type { ZoneId } from "/lib/time/zone-id";
+export type { ZoneOffset } from "/lib/time/zone-offset";
 
 /**
  * Format a date to a string
@@ -33,8 +33,8 @@ export function formatDate({ date, pattern, locale }: FormatDateParams): string 
   return isDateWithoutTime(dateStr)
     ? LocalDate.parse(dateStr).format(formatter)
     : isZonedDateTime(dateStr)
-      ? ZonedDateTime.parse(dateStr).format(formatter)
-      : LocalDateTime.parse(dateStr).format(formatter);
+    ? ZonedDateTime.parse(dateStr).format(formatter)
+    : LocalDateTime.parse(dateStr).format(formatter);
 }
 
 function isDateWithoutTime(dateStr: string): boolean {

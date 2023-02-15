@@ -1,4 +1,4 @@
-import type {ZoneId, Locale} from "/lib/time";
+import type { ZoneId, Locale } from "/lib/time";
 
 /**
  * Formatter for printing and parsing date-time objects.
@@ -15,7 +15,7 @@ export interface DateTimeFormatter {
 }
 
 export interface DateTimeFormatterConstructor {
-  new(): DateTimeFormatter;
+  new (): DateTimeFormatter;
   BASIC_ISO_DATE: DateTimeFormatter;
   ISO_DATE: DateTimeFormatter;
   ISO_DATE_TIME: DateTimeFormatter;

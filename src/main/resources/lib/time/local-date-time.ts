@@ -1,5 +1,15 @@
-import type {DateTimeFormatter, Month, LocalDate, LocalTime, ZoneOffset,
-  Instant, ZoneId, DayOfWeek, OffsetDateTime, ZonedDateTime} from "/lib/time";
+import type {
+  DateTimeFormatter,
+  Month,
+  LocalDate,
+  LocalTime,
+  ZoneOffset,
+  Instant,
+  ZoneId,
+  DayOfWeek,
+  OffsetDateTime,
+  ZonedDateTime,
+} from "/lib/time";
 
 /**
  * LocalDateTime is an immutable date-time object that represents a date-time
@@ -8,18 +18,50 @@ import type {DateTimeFormatter, Month, LocalDate, LocalTime, ZoneOffset,
 export const LocalDateTime = Java.type<LocalDateTimeConstructor>("java.time.LocalDateTime");
 
 export interface LocalDateTimeConstructor {
-  MAX: LocalDateTime,
-  MIN: LocalDateTime,
+  MAX: LocalDateTime;
+  MIN: LocalDateTime;
   now(): LocalDateTime;
   now(zone: ZoneId): LocalDateTime;
   parse(text: string): LocalDateTime;
   parse(text: string, formatter: DateTimeFormatter): LocalDateTime;
   of(year: number, month: number, dayOfMonth: number, hour: number, minute: number): LocalDateTime;
   of(year: number, month: number, dayOfMonth: number, hour: number, minute: number, second: number): LocalDateTime;
-  of(year: number, month: number, dayOfMonth: number, hour: number, minute: number, second: number, nanoOfSecond: number): LocalDateTime;
-  of(year: number, month: Month, dayOfMonth: number, hour: number, minute: number, second: number, nanoOfSecond: number): LocalDateTime;
-  of(year: number, month: Month, dayOfMonth: number, hour: number, minute: number, second: number, nanoOfSecond: number): LocalDateTime;
-  of(year: number, month: Month, dayOfMonth: number, hour: number, minute: number, second: number, nanoOfSecond: number): LocalDateTime;
+  of(
+    year: number,
+    month: number,
+    dayOfMonth: number,
+    hour: number,
+    minute: number,
+    second: number,
+    nanoOfSecond: number
+  ): LocalDateTime;
+  of(
+    year: number,
+    month: Month,
+    dayOfMonth: number,
+    hour: number,
+    minute: number,
+    second: number,
+    nanoOfSecond: number
+  ): LocalDateTime;
+  of(
+    year: number,
+    month: Month,
+    dayOfMonth: number,
+    hour: number,
+    minute: number,
+    second: number,
+    nanoOfSecond: number
+  ): LocalDateTime;
+  of(
+    year: number,
+    month: Month,
+    dayOfMonth: number,
+    hour: number,
+    minute: number,
+    second: number,
+    nanoOfSecond: number
+  ): LocalDateTime;
   of(date: LocalDate, time: LocalTime): LocalDateTime;
   ofEpochSecond(epochSecond: number, nanoOfSecond: number, offset: ZoneOffset): LocalDateTime;
   ofInstant(instant: Instant, zone: ZoneId): LocalDateTime;
@@ -66,4 +108,3 @@ export interface LocalDateTime {
   withSecond(second: number): LocalDateTime;
   withYear(year: number): LocalDateTime;
 }
-

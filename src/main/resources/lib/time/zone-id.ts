@@ -1,4 +1,4 @@
-import type {ZoneOffset} from "/lib/time";
+import type { ZoneOffset } from "/lib/time";
 
 /**
  * A time-zone ID, such as Europe/Paris.
@@ -10,7 +10,7 @@ export interface ZoneIdConstructor {
   SHORT_IDS: Record<string, string>;
   getAvailableZoneIds(): ReadonlyArray<string>;
   of(zoneId: string): ZoneId;
-  of(zoneId: string, aliasMap: Map<string, string>): ZoneId;
+  of(zoneId: string, aliasMap: Record<string, string>): ZoneId;
   ofOffset(prefix: string, offset: ZoneOffset): ZoneId;
   systemDefault(): ZoneId;
 }

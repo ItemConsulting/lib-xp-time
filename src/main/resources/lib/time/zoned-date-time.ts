@@ -1,5 +1,15 @@
-import type {DateTimeFormatter, ZoneId, ZoneOffset, LocalDate, LocalTime, LocalDateTime,
-  Instant, OffsetDateTime, DayOfWeek, Month} from "/lib/time";
+import type {
+  DateTimeFormatter,
+  ZoneId,
+  ZoneOffset,
+  LocalDate,
+  LocalTime,
+  LocalDateTime,
+  Instant,
+  OffsetDateTime,
+  DayOfWeek,
+  Month,
+} from "/lib/time";
 
 /**
  * ZonedDateTime is an immutable representation of a date-time with a time-zone.
@@ -10,7 +20,16 @@ export const ZonedDateTime = Java.type<ZonedDateTimeConstructor>("java.time.Zone
 export interface ZonedDateTimeConstructor {
   now(): ZonedDateTime;
   now(zone: ZoneId): ZonedDateTime;
-  of(year: number, month: number, dayOfMonth: number, hour: number, minute: number, second: number, nanoOfSecond: number, zone: ZoneId): ZonedDateTime;
+  of(
+    year: number,
+    month: number,
+    dayOfMonth: number,
+    hour: number,
+    minute: number,
+    second: number,
+    nanoOfSecond: number,
+    zone: ZoneId
+  ): ZonedDateTime;
   of(date: LocalDate, time: LocalTime, zone: ZoneId): ZonedDateTime;
   of(localDateTime: LocalDateTime, zone: ZoneId): ZonedDateTime;
   ofInstant(instant: Instant, zone: ZoneId): ZonedDateTime;

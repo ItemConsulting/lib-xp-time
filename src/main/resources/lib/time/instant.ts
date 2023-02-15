@@ -1,4 +1,4 @@
-import type {ZoneOffset, OffsetDateTime, ZoneId, ZonedDateTime} from "/lib/time";
+import type { ZoneOffset, OffsetDateTime, ZoneId, ZonedDateTime } from "/lib/time";
 
 /**
  * An instantaneous point on the time-line.
@@ -20,7 +20,7 @@ export interface Instant {
   atOffset(offset: ZoneOffset): OffsetDateTime;
   atZone(zone: ZoneId): ZonedDateTime;
   compareTo(otherInstant: Instant): number;
-  equals(otherInstant: Object): boolean;
+  equals(otherInstant: unknown): boolean;
   getEpochSecond(): number;
   getNano(): number;
   isAfter(otherInstant: Instant): boolean;

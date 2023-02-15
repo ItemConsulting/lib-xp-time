@@ -4,19 +4,19 @@ import { ZonedDateTime } from "/lib/time/zoned-date-time";
 import { Locale } from "/lib/time/util";
 import { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
 
-export type { DayOfWeek } from "/lib/time/day-of-week";
-export type { LocalDateTime } from "/lib/time/local-date-time";
-export type { ZonedDateTime } from "/lib/time/zoned-date-time";
-export type { Locale } from "/lib/time/util";
-export type { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
-export type { Instant } from "/lib/time/instant";
-export type { LocalDate } from "/lib/time/local-date";
-export type { LocalTime } from "/lib/time/local-time";
-export type { Month } from "/lib/time/month";
-export type { OffsetDateTime } from "/lib/time/offset-date-time";
-export type { OffsetTime } from "/lib/time/offset-time";
-export type { ZoneId } from "/lib/time/zone-id";
-export type { ZoneOffset } from "/lib/time/zone-offset";
+export { DayOfWeek } from "/lib/time/day-of-week";
+export { LocalDateTime } from "/lib/time/local-date-time";
+export { ZonedDateTime } from "/lib/time/zoned-date-time";
+export { Locale } from "/lib/time/util";
+export { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
+export { Instant } from "/lib/time/instant";
+export { LocalDate } from "/lib/time/local-date";
+export { LocalTime } from "/lib/time/local-time";
+export { Month } from "/lib/time/month";
+export { OffsetDateTime } from "/lib/time/offset-date-time";
+export { OffsetTime } from "/lib/time/offset-time";
+export { ZoneId } from "/lib/time/zone-id";
+export { ZoneOffset } from "/lib/time/zone-offset";
 
 /**
  * Format a date to a string

@@ -88,4 +88,5 @@ export interface ZonedDateTime {
   withYear(year: number): ZonedDateTime;
   withZoneSameInstant(zone: ZoneId): ZonedDateTime;
   withZoneSameLocal(zone: ZoneId): ZonedDateTime;
+  toString(): string;
 }

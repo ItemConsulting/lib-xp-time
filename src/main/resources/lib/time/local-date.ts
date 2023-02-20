@@ -52,6 +52,7 @@ export interface LocalDate {
   getMonthValue(): number;
   getYear(): number;
   hashCode(): number;
+  toString(): string;
   isLeapYear(): boolean;
   lengthOfMonth(): number;
   lengthOfYear(): number;

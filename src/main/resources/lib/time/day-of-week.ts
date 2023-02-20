@@ -12,4 +12,5 @@ export interface DayOfWeekConstructor {
 
 export interface DayOfWeek {
   getValue(): WeekDayNumber;
+  toString(): string;
 }

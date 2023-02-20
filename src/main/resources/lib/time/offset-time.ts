@@ -30,6 +30,7 @@ export interface OffsetTime {
   getOffset(): ZoneOffset;
   getSecond(): number;
   hashCode(): number;
+  toString(): string;
   isAfter(other: OffsetTime): boolean;
   isBefore(other: OffsetTime): boolean;
   isEqual(other: OffsetTime): boolean;
@@ -41,7 +42,7 @@ export interface OffsetTime {
   plusMinutes(minutes: number): OffsetTime;
   plusNanos(nanos: number): OffsetTime;
   plusSeconds(seconds: number): OffsetTime;
-  toEpochSecond(): number;
+  toEpochSecond(date: LocalDate): number;
   toLocalTime(): LocalTime;
   withHour(hour: number): OffsetTime;
   withMinute(minute: number): OffsetTime;

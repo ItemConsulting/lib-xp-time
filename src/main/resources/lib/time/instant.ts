@@ -21,6 +21,7 @@ export interface Instant {
   atZone(zone: ZoneId): ZonedDateTime;
   compareTo(otherInstant: Instant): number;
   equals(otherInstant: unknown): boolean;
+  toString(): string;
   getEpochSecond(): number;
   getNano(): number;
   isAfter(otherInstant: Instant): boolean;

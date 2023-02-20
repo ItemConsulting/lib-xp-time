@@ -30,6 +30,8 @@ export interface LocalTime {
   atOffset(offset: ZoneOffset): OffsetTime;
   compareTo(other: LocalTime): number;
   format(formatter: DateTimeFormatter): string;
+  toString(): string;
+  hashCode(): number;
   getHour(): number;
   getMinute(): number;
   getNano(): number;

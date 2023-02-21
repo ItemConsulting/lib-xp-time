@@ -3,70 +3,70 @@ import org.junit.Test;
 
 public class DatesServiceTest extends ScriptTestSupport {
 
-  private static String DATES_TEST_PATH = "/lib/DatesTest.js";
-  private static String LOCAL_DATE_TIME_TEST_PATH = "/lib/LocalDateTimeTest.js";
-  private static String LOCAL_TIME_TEST_PATH = "/lib/LocalTimeTest.js";
-  private static String LOCAL_DATE_TEST_PATH = "/lib/LocalDateTest.js";
-  private static String OFFSET_DATE_TIME_TEST_PATH = "/lib/OffsetDateTimeTest.js";
-  private static String OFFSET_TIME_TEST_PATH = "/lib/OffsetTimeTest.js";
-  private static String ZONED_DATE_TIME_TEST_PATH = "/lib/ZonedDateTimeTest.js";
-  private static String ZONE_OFFSET_TEST_PATH = "/lib/ZoneOffsetTest.js";
+  private static String TEST_PATH_DATES = "/lib/DatesTest.js";
+  private static String TEST_PATH_LOCAL_DATE_TIME = "/lib/LocalDateTimeTest.js";
+  private static String TEST_PATH_LOCAL_TIME = "/lib/LocalTimeTest.js";
+  private static String TEST_PATH_LOCAL_DATE = "/lib/LocalDateTest.js";
+  private static String TEST_PATH_OFFSET_DATE_TIME = "/lib/OffsetDateTimeTest.js";
+  private static String TEST_PATH_OFFSET_TIME = "/lib/OffsetTimeTest.js";
+  private static String TEST_PATH_ZONED_DATE_TIME = "/lib/ZonedDateTimeTest.js";
+  private static String TEST_PATH_ZONE_OFFSET = "/lib/ZoneOffsetTest.js";
 
   @Test
   public void runDatesTest() {
-    runFunction(DATES_TEST_PATH, "testGivenDate_testFormatDate");
+    runFunction(TEST_PATH_DATES, "testGivenDate_testFormatDate");
   }
   @Test
   public void runLocalDateTest() {
-    runFunction(LOCAL_DATE_TEST_PATH, "testGivenLocalDate_testFormatLocalDate");
-    runFunction(LOCAL_DATE_TEST_PATH, "testGivenLocalDate_testPlusDate");
-    runFunction(LOCAL_DATE_TEST_PATH, "testGivenLocalDate_testMinusDate");
-    runFunction(LOCAL_DATE_TEST_PATH, "testGivenLocalDate_testDate");
+    runFunction(TEST_PATH_LOCAL_DATE, "testGivenLocalDate_testFormatLocalDate");
+    runFunction(TEST_PATH_LOCAL_DATE, "testGivenLocalDate_testPlusDate");
+    runFunction(TEST_PATH_LOCAL_DATE, "testGivenLocalDate_testMinusDate");
+    runFunction(TEST_PATH_LOCAL_DATE, "testGivenLocalDate_testDate");
   }
   @Test
   public void runLocalDateTimeTest() {
-    runFunction(LOCAL_DATE_TIME_TEST_PATH, "testGivenLocalDateTime_testFormatLocalDateTime");
-    runFunction(LOCAL_DATE_TIME_TEST_PATH, "testGivenLocalDateTime_testPlusTime");
-    runFunction(LOCAL_DATE_TIME_TEST_PATH, "testGivenLocalDateTime_testMinusTime");
-    runFunction(LOCAL_DATE_TIME_TEST_PATH, "testGivenLocalDateTime_testTime");
+    runFunction(TEST_PATH_LOCAL_DATE_TIME, "testGivenLocalDateTime_testFormatLocalDateTime");
+    runFunction(TEST_PATH_LOCAL_DATE_TIME, "testGivenLocalDateTime_testPlusTime");
+    runFunction(TEST_PATH_LOCAL_DATE_TIME, "testGivenLocalDateTime_testMinusTime");
+    runFunction(TEST_PATH_LOCAL_DATE_TIME, "testGivenLocalDateTime_testTime");
   }
   @Test
   public void runLocalTimeTest() {
-    runFunction(LOCAL_TIME_TEST_PATH, "testGivenLocalTime_testFormatLocalTime");
-    runFunction(LOCAL_TIME_TEST_PATH, "testGivenLocalTime_testPlusTime");
-    runFunction(LOCAL_TIME_TEST_PATH, "testGivenLocalTime_testMinusTime");
-    runFunction(LOCAL_TIME_TEST_PATH, "testGivenLocalTime_testTime");
+    runFunction(TEST_PATH_LOCAL_TIME, "testGivenLocalTime_testFormatLocalTime");
+    runFunction(TEST_PATH_LOCAL_TIME, "testGivenLocalTime_testPlusTime");
+    runFunction(TEST_PATH_LOCAL_TIME, "testGivenLocalTime_testMinusTime");
+    runFunction(TEST_PATH_LOCAL_TIME, "testGivenLocalTime_testTime");
   }
   @Test
   public void runOffsetDateTimeTest() {
-    runFunction(OFFSET_DATE_TIME_TEST_PATH, "testGivenOffsetDateTime_testFormatOffsetDateTime");
-    runFunction(OFFSET_DATE_TIME_TEST_PATH, "testGivenOffsetDateTime_testPlusTime");
-    runFunction(OFFSET_DATE_TIME_TEST_PATH, "testGivenOffsetDateTime_testMinusTime");
-    runFunction(OFFSET_DATE_TIME_TEST_PATH, "testGivenOffsetDateTime_testTime");
-    runFunction(OFFSET_DATE_TIME_TEST_PATH, "testGivenOffsetDateTime_testWithTime");
-    runFunction(OFFSET_DATE_TIME_TEST_PATH, "testGivenOffsetDateTime_testGetTime");
-    runFunction(OFFSET_DATE_TIME_TEST_PATH, "testGivenOffsetDateTime_testTimeConversion");
+    runFunction(TEST_PATH_OFFSET_DATE_TIME, "testGivenOffsetDateTime_testFormatOffsetDateTime");
+    runFunction(TEST_PATH_OFFSET_DATE_TIME, "testGivenOffsetDateTime_testPlusTime");
+    runFunction(TEST_PATH_OFFSET_DATE_TIME, "testGivenOffsetDateTime_testMinusTime");
+    runFunction(TEST_PATH_OFFSET_DATE_TIME, "testGivenOffsetDateTime_testTime");
+    runFunction(TEST_PATH_OFFSET_DATE_TIME, "testGivenOffsetDateTime_testWithTime");
+    runFunction(TEST_PATH_OFFSET_DATE_TIME, "testGivenOffsetDateTime_testGetTime");
+    runFunction(TEST_PATH_OFFSET_DATE_TIME, "testGivenOffsetDateTime_testTimeConversion");
   }
   @Test
   public void runOffsetTimeTest() {
-    runFunction(OFFSET_TIME_TEST_PATH, "testGivenOffsetInstant_testFormatOffsetTime");
-    runFunction(OFFSET_TIME_TEST_PATH, "testGivenOffsetTime_testPlusTime");
-    runFunction(OFFSET_TIME_TEST_PATH, "testGivenOffsetTime_testMinusTime");
-    runFunction(OFFSET_TIME_TEST_PATH, "testGivenOffsetTime_testGetTime");
-    runFunction(OFFSET_TIME_TEST_PATH, "testGivenOffsetTime_testWithTime");
-    runFunction(OFFSET_TIME_TEST_PATH, "testGivenOffsetTime_testTimeConversion");
+    runFunction(TEST_PATH_OFFSET_TIME, "testGivenOffsetInstant_testFormatOffsetTime");
+    runFunction(TEST_PATH_OFFSET_TIME, "testGivenOffsetTime_testPlusTime");
+    runFunction(TEST_PATH_OFFSET_TIME, "testGivenOffsetTime_testMinusTime");
+    runFunction(TEST_PATH_OFFSET_TIME, "testGivenOffsetTime_testGetTime");
+    runFunction(TEST_PATH_OFFSET_TIME, "testGivenOffsetTime_testWithTime");
+    runFunction(TEST_PATH_OFFSET_TIME, "testGivenOffsetTime_testTimeConversion");
   }
   @Test
   public void runZonedDateTimeTest() {
-    runFunction(ZONED_DATE_TIME_TEST_PATH, "testGivenZonedDateTime_testFormatZonedDateTime");
-    runFunction(ZONED_DATE_TIME_TEST_PATH, "testGivenZonedDateTime_testPlusTime");
-    runFunction(ZONED_DATE_TIME_TEST_PATH, "testGivenZonedDateTime_testMinusTime");
-    runFunction(ZONED_DATE_TIME_TEST_PATH, "testGivenZonedDateTime_testWithTime");
-    runFunction(ZONED_DATE_TIME_TEST_PATH, "testGivenZonedDateTime_testGetTime");
-    runFunction(ZONED_DATE_TIME_TEST_PATH, "testGivenZonedDateTime_testTimeConversion");
+    runFunction(TEST_PATH_ZONED_DATE_TIME, "testGivenZonedDateTime_testFormatZonedDateTime");
+    runFunction(TEST_PATH_ZONED_DATE_TIME, "testGivenZonedDateTime_testPlusTime");
+    runFunction(TEST_PATH_ZONED_DATE_TIME, "testGivenZonedDateTime_testMinusTime");
+    runFunction(TEST_PATH_ZONED_DATE_TIME, "testGivenZonedDateTime_testWithTime");
+    runFunction(TEST_PATH_ZONED_DATE_TIME, "testGivenZonedDateTime_testGetTime");
+    runFunction(TEST_PATH_ZONED_DATE_TIME, "testGivenZonedDateTime_testTimeConversion");
   }
   @Test
   public void runZoneOffsetTest() {
-    runFunction(ZONE_OFFSET_TEST_PATH, "testZoneOffset");
+    runFunction(TEST_PATH_ZONE_OFFSET, "testZoneOffset");
   }
 }

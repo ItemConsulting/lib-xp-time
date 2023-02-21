@@ -46,6 +46,7 @@ export interface OffsetDateTime {
   atZoneSameInstant(zone: ZoneId): ZonedDateTime;
   atZoneSimilarLocal(zone: ZoneId): ZonedDateTime;
   compareTo(other: OffsetDateTime): number;
+  toString(): string;
   format(formatter: DateTimeFormatter): string;
   getDayOfMonth(): number;
   getDayOfWeek(): DayOfWeek;

@@ -71,6 +71,8 @@ export interface LocalDateTime {
   atOffset(offset: ZoneOffset): OffsetDateTime;
   atZone(zone: ZoneId): ZonedDateTime;
   format(formatter: DateTimeFormatter): string;
+  toString(): string;
+  hashCode(): number;
   getDayOfMonth(): number;
   getDayOfWeek(): DayOfWeek;
   getDayOfYear(): number;
@@ -96,7 +98,7 @@ export interface LocalDateTime {
   plusNanos(nanos: number): LocalDateTime;
   plusSeconds(seconds: number): LocalDateTime;
   plusWeeks(weeks: number): LocalDateTime;
-  plusYear(years: number): LocalDateTime;
+  plusYears(years: number): LocalDateTime;
   toLocalDate(): LocalDate;
   toLocalTime(): LocalTime;
   withDayOfMonth(dayOfMonth: number): LocalDateTime;

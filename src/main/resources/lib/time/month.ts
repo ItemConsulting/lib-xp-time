@@ -14,6 +14,8 @@ export interface MonthConstructor {
 
 export interface Month {
   getValue(): MonthNumber;
+  toString(): string;
+  hashCode(): number;
   firstDayOfYear(leapYear: boolean): number;
   firstMonthOfQuarter(): Month;
   length(leapYear: boolean): number;

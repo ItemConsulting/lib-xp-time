@@ -26,8 +26,13 @@ export { ZoneOffset } from "/lib/time/zone-offset";
  * @param pattern The shape of the output string
  * @param locale The locale of the country you are formatting to
  */
-export function formatDate({ date, pattern, locale }: FormatDateParams): string {
-  const formatter = DateTimeFormatter.ofPattern(pattern, locale ? new Locale(locale) : undefined);
+export function formatDate({ date, pattern, locale }: FormatDateParams): string;
+export function formatDate({ date, pattern, locale }: FormatDateParamsAllowNullable): string | undefined;
+export function formatDate({ date, pattern, locale }: FormatDateParamsAllowNullable): string | undefined {
+  if (!date) {
+    return undefined;
+  }
+  const formatter = DateTimeFormatter.ofPattern(pattern, locale ? new Locale(locale) : Locale.getDefault());
   const dateStr = typeof date === "string" ? date : date.toISOString();
 
   return isDateWithoutTime(dateStr)
@@ -47,6 +52,12 @@ function isZonedDateTime(date: string): boolean {
 
 export interface FormatDateParams {
   date: string | Date;
+  pattern: string;
+  locale?: string | undefined;
+}
+
+export interface FormatDateParamsAllowNullable {
+  date: string | Date | undefined | null;
   pattern: string;
   locale?: string | undefined;
 }

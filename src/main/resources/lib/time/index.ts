@@ -32,8 +32,7 @@ export function formatDate({ date, pattern, locale }: FormatDateParamsAllowNulla
   if (!date) {
     return undefined;
   }
-
-  const formatter = DateTimeFormatter.ofPattern(pattern, locale ? new Locale(locale) : undefined);
+  const formatter = DateTimeFormatter.ofPattern(pattern, locale ? new Locale(locale) : Locale.getDefault());
   const dateStr = typeof date === "string" ? date : date.toISOString();
 
   return isDateWithoutTime(dateStr)

@@ -30,5 +30,5 @@ export interface DateTimeFormatterConstructor {
   ISO_ZONED_DATE_TIME: DateTimeFormatter;
   RFC_1123_DATE_TIME: DateTimeFormatter;
   ofPattern(pattern: string): DateTimeFormatter;
-  ofPattern(pattern: string, locale?: Locale): DateTimeFormatter;
+  ofPattern(pattern: string, locale: Locale): DateTimeFormatter;
 }

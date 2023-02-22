@@ -1,10 +1,11 @@
 {
   "name": "@item-enonic-types/lib-time",
-  "version": "0.0.1-SNAPSHOT",
+  "version": "0.1.0",
   "description": "Type definitions for lib-time",
   "license": "MIT",
   "files": [
     "*.d.ts",
+    "format/*.d.ts",
     "tsconfig.json"
   ],
   "scripts": {
@@ -13,8 +14,8 @@
     "dist:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js --color",
     "dist": "run-p -c dist:*",
     "lint": "eslint --fix 'src/**/*.ts'",
-    "prepublishOnly": "tsc --project src/main/resources/tsconfig.server.json --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/lib/time/* .",
-    "postpublish": "rm ./*.d.ts"
+    "prepublishOnly": "tsc --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/build/resources/main/lib/time/* .",
+    "postpublish": "rm ./*.d.ts && rm -r ./format"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

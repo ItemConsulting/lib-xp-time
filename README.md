@@ -1,6 +1,6 @@
 # Time library for Enonic XP
 
-This library is used to 
+This library is used for quick integration of Java.time library in Enonic XP. Only the most used date and time object types are emitted from this library. 
 
 [![](https://jitpack.io/v/no.item/lib-xp-time.svg)](https://jitpack.io/#no.item/lib-xp-time)
 

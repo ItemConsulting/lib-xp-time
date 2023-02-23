@@ -3,7 +3,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
-    "sourceMap": true,
+    "sourceMap": false,
     "allowJs": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -17,6 +17,12 @@
     "declaration": true,
     "declarationDir": "build/types"
   },
+  "include": [
+    "./src/main/resources/**/*"
+  ],
+  "exclude": [
+    "./build/*",
+  ],
   "types": [
     "types"
   ]

@@ -9,25 +9,30 @@ const LOCALE = "us";
 
 exports.testGivenDate_testFormatDate = function () {
   const dateResult = t.formatDate({
-      date,
-      pattern: PATTERN,
-      locale: LOCALE,});
+    date,
+    pattern: PATTERN,
+    locale: LOCALE
+  });
   const undefinedDate = t.formatDate({
-      date: undefined,
-      pattern: PATTERN,
-      locale: LOCALE,});
+    date: undefined,
+    pattern: PATTERN,
+    locale: LOCALE
+  });
   const nullDate = t.formatDate({
-      date: null,
-      pattern: PATTERN,
-      locale: LOCALE,});
+    date: null,
+    pattern: PATTERN,
+    locale: LOCALE
+  });
   const undefinedLocale = t.formatDate({
-      date,
-      pattern: PATTERN,
-      locale: undefined});
+    date,
+    pattern: PATTERN,
+    locale: undefined
+  });
   const emptyStringLocale = t.formatDate({
-      date,
-      pattern: PATTERN,
-      locale: ""});
+    date,
+    pattern: PATTERN,
+    locale: ""
+  });
   testLib.assertEquals(dateResult, "2023-02-08");
   testLib.assertEquals(undefinedDate, undefined);
   testLib.assertEquals(nullDate, undefined);

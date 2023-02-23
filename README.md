@@ -1,6 +1,7 @@
 # Time library for Enonic XP
 
-This library is used for quick integration of Java.time library in Enonic XP. Only the most used date and time object types are emitted from this library. 
+This library enables the usage of classes from the [`java.time`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/package-summary.html) package from Enonic XP application code.
+Other JavaScript-based time libraries like _Moment.js_ or _date-fns_ will negatively impact your bundle size and build time. This library is only a **thin TypeScript-wrapper** around the excellent core `java.time` library already present in your system!
 
 [![](https://jitpack.io/v/no.item/lib-xp-time.svg)](https://jitpack.io/#no.item/lib-xp-time)
 
@@ -44,31 +45,33 @@ You can add the following changes to your *tsconfig.json* to get TypeScript-supp
 ```
 
 ### Usage
-In `"/lib/time"` you will find the most common date types & functions wrapped from the respective Java.Time library.
-*Example usage from exposed constants in index.ts :*
+
+You can import `java.time` and  `java.time.format` classes from `"/lib/time"`.
+
+*Example of date math on a `LocalDateTime` using `"/lib/time"`:*
 
 ```typescript
 import { LocalDateTime, DateTimeFormatter } from "/lib/time";
 
-//LocalDateTime
-const localDateTime = LocalDateTime.parse("2023-02-21T12:15:30");
-const plusThreeWeeks = localDateTime.plusWeeks(3);
-const formatted = plusThreeWeeks.format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss"));
-//formatted date will be equal to "14-03-2023 12:15:30"
+const today = LocalDateTime.parse("2023-02-21T12:15:30");
+const inThreeWeeks = today.plusWeeks(3);
+const dateStr = inThreeWeeks.format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss"));
+// dateStr = "14-03-2023 12:15:30"
 ```
+
+*Example of doing time math using a `ZonedDateTime`:*
 
 ```typescript
 import { ZonedDateTime } from "/lib/time";
 
-//ZonedDateTime
-const zonedDateTime = ZonedDateTime.parse("2023-02-21T12:15:30+01:00");
-const minusFiftyMinutes = zonedDateTime.minusMinutes(50);
-const time = minusFiftyMinutes.toLocalTime();
-//time will be equal to "11:25:30"
+const date = ZonedDateTime.parse("2023-02-21T12:15:30+01:00");
+const fiftyMinutesAgo = date.minusMinutes(50);
+const time = fiftyMinutesAgo.toLocalTime();
+// time = "11:25:30"
 ```
 
 ### Constants exposed from `"/lib/time"`
-The following constants is exposed/exported from `"/lib/time"`:
+The following classes is exposed/exported from `"/lib/time"`:
 * `DateTimeFormatter`
 * `DayOfWeek`
 * `Instant`

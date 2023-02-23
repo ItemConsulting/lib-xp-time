@@ -23,12 +23,12 @@ dependencies {
 }
 ```
 
+### TypeScript
+
 To update the version of *enonic-types* in *package.json* using npm, run the following command:
 ```bash
 npm install --save-dev @item-enonic-types/lib-time
 ```
-
-### TypeScript
 
 You can add the following changes to your *tsconfig.json* to get TypeScript-support.
 
@@ -68,6 +68,19 @@ const date = ZonedDateTime.parse("2023-02-21T12:15:30+01:00");
 const fiftyMinutesAgo = date.minusMinutes(50);
 const time = fiftyMinutesAgo.toLocalTime();
 // time = "11:25:30"
+```
+
+*This library also exposes a utility function `formatDate()` to simply format a date:*
+
+```typescript
+import { formatDate } from "/lib/time";
+
+const today = t.formatDate({
+  date: "2023-02-21",
+  pattern: "dd-MM-yyyy",
+  locale: "no"
+});
+// today = "21-02-2023"
 ```
 
 ### Constants exposed from `"/lib/time"`

@@ -58,7 +58,7 @@ const formatter = DateTimeFormatter.ofPattern("dd.MM hh:mm")
 const inThreeWeeksStr = today
   .plusWeeks(3)
   .format(formatter);
-// inThreeWeeksStr = "14-03 12:15"
+// inThreeWeeksStr = "14.03 12:15"
 ```
 
 *Example of doing time math using a `ZonedDateTime`:*
@@ -90,8 +90,7 @@ const today = t.formatDate({
 import { LocalDateTime, DateTimeFormatter, Locale } from "/lib/time";
 
 const today = LocalDateTime.parse("2023-02-21T12:15:30");
-const formatter = DateTimeFormatter.ofPattern("EEEE d. MMMM yyyy hh:mm:ss")
-  .withLocale(new Locale("no"));
+const formatter = DateTimeFormatter.ofPattern("EEEE d. MMMM yyyy hh:mm:ss", new Locale("no"));
 const time = today.format(formatter);
 // time = "tirsdag 21. februar 2023 12:15:30"
 ```

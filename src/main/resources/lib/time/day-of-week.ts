@@ -8,9 +8,13 @@ export type WeekDayNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export interface DayOfWeekConstructor {
   of(dayOfWeek: WeekDayNumber): DayOfWeek;
+  valueOf(name: string): DayOfWeek;
+  values(): DayOfWeek[];
 }
 
 export interface DayOfWeek {
   getValue(): WeekDayNumber;
+  minus(days: number): DayOfWeek;
+  plus(days: number): DayOfWeek;
   toString(): string;
 }

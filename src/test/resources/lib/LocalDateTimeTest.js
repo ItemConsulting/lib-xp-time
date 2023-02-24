@@ -13,6 +13,8 @@ const OffsetDateTime = offsetDateTimeLib.OffsetDateTime;
 const ZoneId = zoneIdLib.ZoneId;
 const ZoneOffset = zoneOffsetLib.ZoneOffset;
 const Month = monthLib.Month;
+const utilLib = require("/lib/time/util");
+const Locale = utilLib.Locale;
 
 const EXAMPLE_LOCAL_DATE_TIME = "2023-02-08T11:15:30";
 const ldtParsed = LocalDateTime.parse(EXAMPLE_LOCAL_DATE_TIME);
@@ -22,7 +24,13 @@ const ZONE_ID_OSLO_NORMALIZED = "Europe/Oslo";
 exports.testGivenLocalDateTime_testFormatLocalDateTime = function () {
   const localDateTime = LocalDateTime.of(2023, Month.of(2), 8, 13, 22, 11, 11);
   const formatted = localDateTime.format(DateTimeFormatter.BASIC_ISO_DATE);
+
+  const formatter = DateTimeFormatter.ofPattern("EEEE d. MMMM yyyy hh:mm:ss").withLocale(new Locale("no"));
+  const today = LocalDateTime.parse("2023-02-24T12:00:30");
+  const time = today.format(formatter);
+
   testLib.assertEquals(formatted, "20230208");
+  testLib.assertEquals(time, "fredag 24. februar 2023 12:00:30");
 }
 
 exports.testGivenLocalDateTime_testPlusTime = function () {

@@ -17,9 +17,6 @@
     "declaration": true,
     "declarationDir": "build/types"
   },
-  "include": [
-    "./src/main/resources/**/*"
-  ],
   "exclude": [
     "./build/*",
   ],

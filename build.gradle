@@ -2,14 +2,14 @@ plugins {
   id 'java'
   id 'maven-publish'
   id "com.github.node-gradle.node" version '3.4.0'
-  id 'com.enonic.xp.base' version '3.1.0'
+  id 'com.enonic.xp.base' version '3.2.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
 dependencies {
-  compile "com.enonic.xp:portal-api:${xpVersion}"
+  implementation "com.enonic.xp:script-api:${xpVersion}"
   testImplementation "com.enonic.xp:testing:${xpVersion}"
 }
 

@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-  include "no.item:lib-xp-time:0.1.0"
+  include "no.item:lib-xp-time:1.0.0"
 }
 ```
 

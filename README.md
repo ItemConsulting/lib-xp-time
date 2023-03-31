@@ -77,7 +77,7 @@ const time = fiftyMinutesAgo.toLocalTime();
 ```typescript
 import { formatDate } from "/lib/time";
 
-const today = t.formatDate({
+const today = formatDate({
   date: "2023-02-21",
   pattern: "dd-MM-yyyy",
   locale: "no"

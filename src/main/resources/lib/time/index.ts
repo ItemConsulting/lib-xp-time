@@ -1,4 +1,5 @@
 import { LocalDate } from "/lib/time/local-date";
+import { ZoneId } from "/lib/time/zone-id";
 import { LocalDateTime } from "/lib/time/local-date-time";
 import { ZonedDateTime } from "/lib/time/zoned-date-time";
 import { Locale } from "/lib/time/util";
@@ -26,13 +27,28 @@ export { ZoneOffset } from "/lib/time/zone-offset";
  * @param pattern The shape of the output string
  * @param locale The locale of the country you are formatting to
  */
-export function formatDate({ date, pattern, locale }: FormatDateParams): string;
-export function formatDate({ date, pattern, locale }: FormatDateParamsAllowNullable): string | undefined;
-export function formatDate({ date, pattern, locale }: FormatDateParamsAllowNullable): string | undefined {
+export function formatDate({ date, pattern, locale, timezoneId }: FormatDateParams): string;
+export function formatDate({ date, pattern, locale, timezoneId }: FormatDateParamsAllowNullable): string | undefined;
+export function formatDate({ date, pattern, locale, timezoneId }: FormatDateParamsAllowNullable): string | undefined {
   if (!date) {
     return undefined;
   }
-  const formatter = DateTimeFormatter.ofPattern(pattern, locale ? new Locale(locale) : Locale.getDefault());
+
+  const localeOrDefault = locale ? new Locale(locale) : Locale.getDefault();
+
+  let zoneIdOrDefault = undefined;
+  if(timezoneId) {
+    try {
+      zoneIdOrDefault = ZoneId.of(timezoneId);
+    }catch(e) {
+      zoneIdOrDefault = ZoneId.systemDefault();
+    }
+  }
+
+  const formatter = timezoneId && zoneIdOrDefault ? DateTimeFormatter.ofPattern(pattern, localeOrDefault).withZone(
+    zoneIdOrDefault
+  ) : DateTimeFormatter.ofPattern(pattern, localeOrDefault);
+
   const dateStr = typeof date === "string" ? date : date.toISOString();
 
   return isDateWithoutTime(dateStr)
@@ -54,10 +70,12 @@ export interface FormatDateParams {
   date: string | Date;
   pattern: string;
   locale?: string | undefined;
+  timezoneId?: string | undefined;
 }
 
 export interface FormatDateParamsAllowNullable {
   date: string | Date | undefined | null;
   pattern: string;
   locale?: string | undefined;
+  timezoneId?: string | undefined;
 }

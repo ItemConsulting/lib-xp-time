@@ -84,6 +84,18 @@ const today = formatDate({
 });
 // today = "21-02-2023"
 ```
+*Use `formatDate()` with a given timezoneId*
+```typescript
+import { formatDate } from "/lib/time";
+
+const today = formatDate({
+  date: "2023-02-21",
+  pattern: "dd-MM-yyyy",
+  locale: "no",
+  timezoneId: "Europe/Oslo"
+});
+// today = "21-02-2023"
+```
 
 *Example of using `Locale` in formatting a `LocalDateTime` and get a normalized timestamp :*
 ```typescript

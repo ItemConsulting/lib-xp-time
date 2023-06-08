@@ -1,6 +1,6 @@
 {
   "name": "@item-enonic-types/lib-time",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Type definitions for lib-time",
   "license": "MIT",
   "files": [
@@ -14,7 +14,7 @@
     "dist:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js --color",
     "dist": "run-p -c dist:*",
     "lint": "eslint --fix 'src/**/*.ts'",
-    "prepublishOnly": "tsc --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/* .",
+    "prepublishOnly": "tsc --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/src/main/resources/lib/time/* .",
     "postpublish": "rm ./*.d.ts && rm -r ./format"
   },
   "devDependencies": {

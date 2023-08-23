@@ -37,17 +37,18 @@ export function formatDate({ date, pattern, locale, timezoneId }: FormatDatePara
   const localeOrDefault = locale ? new Locale(locale) : Locale.getDefault();
 
   let zoneIdOrDefault = undefined;
-  if(timezoneId) {
+  if (timezoneId) {
     try {
       zoneIdOrDefault = ZoneId.of(timezoneId);
-    }catch(e) {
+    } catch (e) {
       zoneIdOrDefault = ZoneId.systemDefault();
     }
   }
 
-  const formatter = timezoneId && zoneIdOrDefault ? DateTimeFormatter.ofPattern(pattern, localeOrDefault).withZone(
-    zoneIdOrDefault
-  ) : DateTimeFormatter.ofPattern(pattern, localeOrDefault);
+  const formatter =
+    timezoneId && zoneIdOrDefault
+      ? DateTimeFormatter.ofPattern(pattern, localeOrDefault).withZone(zoneIdOrDefault)
+      : DateTimeFormatter.ofPattern(pattern, localeOrDefault);
 
   const dateStr = typeof date === "string" ? date : date.toISOString();
 

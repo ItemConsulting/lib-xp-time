@@ -28,7 +28,7 @@ export interface ZonedDateTimeConstructor {
     minute: number,
     second: number,
     nanoOfSecond: number,
-    zone: ZoneId
+    zone: ZoneId,
   ): ZonedDateTime;
   of(date: LocalDate, time: LocalTime, zone: ZoneId): ZonedDateTime;
   of(localDateTime: LocalDateTime, zone: ZoneId): ZonedDateTime;

@@ -33,7 +33,7 @@ export interface LocalDateTimeConstructor {
     hour: number,
     minute: number,
     second: number,
-    nanoOfSecond: number
+    nanoOfSecond: number,
   ): LocalDateTime;
   of(
     year: number,
@@ -42,7 +42,7 @@ export interface LocalDateTimeConstructor {
     hour: number,
     minute: number,
     second: number,
-    nanoOfSecond: number
+    nanoOfSecond: number,
   ): LocalDateTime;
   of(
     year: number,
@@ -51,7 +51,7 @@ export interface LocalDateTimeConstructor {
     hour: number,
     minute: number,
     second: number,
-    nanoOfSecond: number
+    nanoOfSecond: number,
   ): LocalDateTime;
   of(
     year: number,
@@ -60,7 +60,7 @@ export interface LocalDateTimeConstructor {
     hour: number,
     minute: number,
     second: number,
-    nanoOfSecond: number
+    nanoOfSecond: number,
   ): LocalDateTime;
   of(date: LocalDate, time: LocalTime): LocalDateTime;
   ofEpochSecond(epochSecond: number, nanoOfSecond: number, offset: ZoneOffset): LocalDateTime;

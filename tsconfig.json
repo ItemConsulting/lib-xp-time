@@ -4,6 +4,7 @@
     "moduleResolution": "node",
     "target": "es5",
     "sourceMap": false,
+    "skipLibCheck": true,
     "allowJs": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,

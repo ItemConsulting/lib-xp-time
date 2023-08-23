@@ -33,7 +33,7 @@ export interface OffsetDateTimeConstructor {
     minute: number,
     second: number,
     nanoOfSecond: number,
-    offset: ZoneOffset
+    offset: ZoneOffset,
   ): OffsetDateTime;
   of(date: LocalDate, time: LocalTime, offset: ZoneOffset): OffsetDateTime;
   of(dateTime: LocalDateTime, offset: ZoneOffset): OffsetDateTime;

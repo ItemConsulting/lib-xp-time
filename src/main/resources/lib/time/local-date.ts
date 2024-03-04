@@ -53,6 +53,9 @@ export interface LocalDate {
   getYear(): number;
   hashCode(): number;
   toString(): string;
+  isAfter(other: LocalDate): boolean;
+  isBefore(other: LocalDate): boolean;
+  isEqual(other: LocalDate): boolean;
   isLeapYear(): boolean;
   lengthOfMonth(): number;
   lengthOfYear(): number;

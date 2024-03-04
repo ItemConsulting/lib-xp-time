@@ -1,6 +1,6 @@
 {
   "name": "@item-enonic-types/lib-time",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Type definitions for lib-time",
   "license": "MIT",
   "files": [

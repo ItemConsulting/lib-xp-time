@@ -83,6 +83,9 @@ export interface LocalDateTime {
   getNano(): number;
   getSecond(): number;
   getYear(): number;
+  isAfter(other: LocalDateTime): boolean;
+  isBefore(other: LocalDateTime): boolean;
+  isEqual(other: LocalDateTime): boolean;
   minusDays(days: number): LocalDateTime;
   minusHours(hours: number): LocalDateTime;
   minusMinutes(minutes: number): LocalDateTime;

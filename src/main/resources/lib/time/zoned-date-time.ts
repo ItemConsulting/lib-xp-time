@@ -53,6 +53,9 @@ export interface ZonedDateTime {
   getOffset(): ZoneOffset;
   getSecond(): number;
   getYear(): number;
+  isAfter(other: ZonedDateTime): boolean;
+  isBefore(other: ZonedDateTime): boolean;
+  isEqual(other: ZonedDateTime): boolean;
   getZone(): ZoneId;
   hashCode(): number;
   minusDays(days: number): ZonedDateTime;

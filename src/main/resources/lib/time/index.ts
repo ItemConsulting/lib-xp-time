@@ -40,7 +40,7 @@ export function formatDate({ date, pattern, locale, timezoneId }: FormatDatePara
   if (timezoneId) {
     try {
       zoneIdOrDefault = ZoneId.of(timezoneId);
-    } catch (e) {
+    } catch {
       zoneIdOrDefault = ZoneId.systemDefault();
     }
   }
@@ -55,8 +55,8 @@ export function formatDate({ date, pattern, locale, timezoneId }: FormatDatePara
   return isDateWithoutTime(dateStr)
     ? LocalDate.parse(dateStr).format(formatter)
     : isZonedDateTime(dateStr)
-    ? ZonedDateTime.parse(dateStr).format(formatter)
-    : LocalDateTime.parse(dateStr).format(formatter);
+      ? ZonedDateTime.parse(dateStr).format(formatter)
+      : LocalDateTime.parse(dateStr).format(formatter);
 }
 
 function isDateWithoutTime(dateStr: string): boolean {

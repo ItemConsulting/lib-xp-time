@@ -3,7 +3,7 @@
 This library enables the usage of classes from the [`java.time`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/package-summary.html) package from Enonic XP application code.
 Other JavaScript-based time libraries like _Moment.js_ or _date-fns_ will negatively impact your bundle size and build time. This library is only a **thin TypeScript-wrapper** around the excellent core `java.time` library already present in your system!
 
-[![](https://jitpack.io/v/no.item/lib-xp-time.svg)](https://jitpack.io/#no.item/lib-xp-time)
+[![](https://repo.itemtest.no/api/badge/latest/releases/no/item/lib-xp-time)](https://repo.itemtest.no/#/releases/no/item/lib-xp-time)
 
 <img src="https://github.com/ItemConsulting/lib-xp-time/raw/main/docs/icon.svg?sanitize=true" width="150">
 
@@ -123,22 +123,26 @@ The following classes is exposed/exported from `"/lib/time"`:
 * `ZoneId`
 * `ZoneOffset`
 
-### Building
+## Building
 
-To build the project run the following code
-
-```bash
-./gradlew build
-```
-
-### Deploy locally
-
-Deploy locally for testing purposes:
+To build the project, run the following command
 
 ```bash
-./gradlew publishToMavenLocal
+enonic project build
 ```
-## Deploy to Jitpack
 
-Go to the [Jitpack page for lib-xp-time](https://jitpack.io/#no.item/lib-xp-time) to deploy from GitHub (after
-[creating a new versioned release](https://github.com/ItemConsulting/lib-xp-time/releases/new)).
+You will find the jar-file at _./build/libs/item.jar_
+
+## Deploying locally
+
+To deploy to a local sandbox, run the following command
+
+```bash
+enonic project deploy
+```
+
+## Deploy to Maven
+
+```bash
+./gradlew publish -P com.enonic.xp.app.production=true
+```

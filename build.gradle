@@ -68,8 +68,18 @@ def nodeEnvironment() {
 }
 
 publishing {
+  repositories {
+    maven {
+      name = "itemtestRepository"
+      url = "https://repo.itemtest.no/releases"
+      credentials(PasswordCredentials)
+      authentication {
+        basic(BasicAuthentication)
+      }
+    }
+  }
   publications {
-    mavenJava(MavenPublication) {
+    maven(MavenPublication) {
       from components.java
       groupId group
       artifactId projectName

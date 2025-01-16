@@ -8,49 +8,32 @@
     "format/*.d.ts",
     "tsconfig.json"
   ],
-  "scripts": {
-    "build:server": "webpack --config webpack.server.config.js --color",
-    "build": "run-p -c build:*",
-    "dist:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js --color",
-    "dist": "run-p -c dist:*",
-    "lint": "eslint --fix 'src/**/*.ts'",
-    "prepublishOnly": "tsc --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/src/main/resources/lib/time/* .",
-    "postpublish": "rm ./*.d.ts && rm -r ./format",
-    "release": "npm run build",
-    "versioning": "npx changeset version && npm i --package-lock-only && NEW_VERSION=$(node -p \"require('./package.json').version\") && sed -i \"s/version.*/version = ${NEW_VERSION}/\" gradle.properties"
-  },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/preset-env": "^7.26.0",
-    "@babel/register": "^7.25.9",
+    "@changesets/cli": "^2.27.11",
     "@item-enonic-types/lib-testing": "^7.13.0",
-    "@types/node": "^22.10.1",
-    "babel-loader": "^9.2.1",
-    "browserslist": "^4.24.2",
-    "browserslist-config-enonic": "^1.0.8",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.16.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "glob": "^11.0.0",
-    "npm-run-all": "^4.1.5",
+    "@swc/core": "^1.10.7",
+    "@types/node": "^22.10.7",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "concurrently": "^9.1.2",
+    "glob": "^11.0.1",
     "prettier": "^3.4.2",
-    "ramda": "^0.30.1",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "^8.17.0",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4"
-  },
-  "browserslist": [
-    "extends browserslist-config-enonic"
-  ],
-  "engines": {
-    "node": ">= 16.13.1 || >=18.0.0",
-    "npm": ">= 8.1.2"
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
   },
   "dependencies": {
     "@item-enonic-types/nashorn-env": "^0.0.2"
+  },
+  "scripts": {
+    "build": "node tsup/anyServerFiles.js && npx tsup -d build/resources/main",
+    "check": "concurrently -c auto -g --timings npm:check:types npm:lint",
+    "check:types": "node tsup/anyServerFiles.js && npx tsc --noEmit -p src/main/resources/tsconfig.json || exit 0",
+    "lint": "eslint --cache \"src/main/resources/**/*.ts\"",
+    "prepublishOnly": "tsc --project src/main/resources/tsconfig.json --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/* .",
+    "postpublish": "rm ./*.d.ts && rm -r ./format",
+    "release": "npm run build",
+    "versioning": "npx changeset version && npm i --package-lock-only && NEW_VERSION=$(node -p \"require('./package.json').version\") && sed -i \"s/version.*/version = ${NEW_VERSION}/\" gradle.properties"
   }
 }

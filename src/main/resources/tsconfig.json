@@ -1,0 +1,18 @@
+{
+  "include": [
+    "**/*.ts"
+  ],
+
+  "exclude": [
+    "**/*.d.ts",
+  ],
+
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "/lib/*": [ "../../../node_modules/@item-enonic-types/lib-*" ,"./lib/*"]
+    },
+    "skipLibCheck": true,
+    "types": ["@item-enonic-types/nashorn-env"]
+  },
+}

@@ -1,28 +1,18 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "es5",
-    "sourceMap": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "baseUrl": "./",
-    "types": ["@item-enonic-types/nashorn-env"],
-    "paths": {
-      "/lib/xp/*": ["node_modules/@enonic-types/lib-*"],
-      "/lib/*": [ "./node_modules/@item-enonic-types/lib-*" ,"./src/main/resources/lib/*"]
-    },
-    "declaration": true,
-    "declarationDir": "build/types"
-  },
-  "exclude": [
-    "./build/*",
+  "include": [
+    "**/*.ts"
   ],
-  "types": [
-    "types"
-  ]
+  "exclude": [
+    "**/*.d.ts",
+    "src/**/*.*", // Avoid Enonic XP source files
+  ],
+
+  "compilerOptions": {
+    "lib": [
+      "es2023" // string.replaceAll
+    ],
+    "types": [
+      "node"
+    ],
+  },
 }

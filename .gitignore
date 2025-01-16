@@ -1,3 +1,9 @@
+# I don't know where this comes from, maybe Visual Studio Code
+/bin/
+
+/coverage/
+/node_modules/
+
 ### Enonic CLI ###
 .enonic
 
@@ -37,9 +43,6 @@ gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
-
-### VSCode ###
-*.code-workspace
 
 ### WebStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
@@ -93,10 +96,6 @@ crashlytics-build.properties
 .sass-cache
 *.css.map
 
-
-### Node ###
-node_modules
-npm-debug.log
-
-### Project ###
-*.map
+.eslintcache
+dist
+*.tgz

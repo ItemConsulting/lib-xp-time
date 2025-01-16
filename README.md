@@ -15,11 +15,11 @@ To install this library you need to add a new dependency to your app's build.gra
 
 ```groovy
 repositories {
-  maven { url 'https://jitpack.io' }
+  maven { url "https://repo.itemtest.no/releases" }
 }
 
 dependencies {
-  include "no.item:lib-xp-time:1.0.3"
+  include "no.item:lib-xp-time:1.1.0"
 }
 ```
 
@@ -27,7 +27,7 @@ dependencies {
 
 To update the version of *enonic-types* in *package.json* using npm, run the following command:
 ```bash
-npm install --save-dev @item-enonic-types/lib-time
+npm i -D @item-enonic-types/lib-time
 ```
 
 You can add the following changes to your *tsconfig.json* to get TypeScript-support.
@@ -123,7 +123,9 @@ The following classes is exposed/exported from `"/lib/time"`:
 * `ZoneId`
 * `ZoneOffset`
 
-## Building
+## Deploying
+
+### Building
 
 To build the project, run the following command
 
@@ -133,7 +135,7 @@ enonic project build
 
 You will find the jar-file at _./build/libs/item.jar_
 
-## Deploying locally
+### Deploying locally
 
 To deploy to a local sandbox, run the following command
 
@@ -141,7 +143,7 @@ To deploy to a local sandbox, run the following command
 enonic project deploy
 ```
 
-## Deploy to Maven
+### Deploy to Maven
 
 ```bash
 ./gradlew publish -P com.enonic.xp.app.production=true

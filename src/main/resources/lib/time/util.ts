@@ -4,10 +4,13 @@
  */
 export const Locale = Java.type<LocaleConstructor>("java.util.Locale");
 
+/**
+ * A LanguageRange can be used to parse `req.headers["Accept-Language"]` to determine the best matching language.
+ */
+export const LanguageRange = Java.type<LanguageRangeConstructor>("java.util.Locale.LanguageRange");
+
 export interface LocaleConstructor {
-  new (language: string): Locale;
-  new (language: string, country: string): Locale;
-  new (language: string, country: string, variant: string): Locale;
+  new (language: string, country?: string, variant?: string): Locale;
   CANADA: Locale;
   CANADA_FRENCH: Locale;
   CHINA: Locale;
@@ -30,11 +33,15 @@ export interface LocaleConstructor {
   UK: Locale;
   UNICODE_LOCALE_EXTENSION: Locale;
   US: Locale;
+  filter(priorityList: LanguageRange[], locales: Locale[]): Locale[];
+  filterTags(priorityList: LanguageRange[], tags: string[]): Locale[];
   forLanguageTag(languageTag: string): Locale;
   getAvailableLocales(): Locale[];
   getDefault(): Locale;
   getISOCountries(): string[];
   getISOLanguages(): string[];
+  lookup(priorityList: LanguageRange[], locales: Locale[]): Locale;
+  lookupTag(priorityList: LanguageRange[], tags: string[]): Locale;
   setDefault(newLocale: Locale): void;
 }
 
@@ -64,4 +71,18 @@ export interface Locale {
   toLanguageTag(): string;
   toString(): string;
   hashCode(): number;
+}
+
+interface LanguageRangeConstructor {
+  new (range: string, weight?: number): LanguageRange;
+  MAX_WEIGHT: number;
+  MIN_WEIGHT: number;
+  mapEquivalents(priorityList: LanguageRange[], map: Record<string, string[]>): LanguageRange[];
+  parse(ranges: string): LanguageRange[];
+  parse(ranges: string, map: Record<string, string[]>): LanguageRange[];
+}
+
+export interface LanguageRange {
+  getRange(): string;
+  getWeight(): number;
 }

@@ -8,7 +8,7 @@ import { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
 export { DayOfWeek } from "/lib/time/day-of-week";
 export { LocalDateTime } from "/lib/time/local-date-time";
 export { ZonedDateTime } from "/lib/time/zoned-date-time";
-export { Locale } from "/lib/time/util";
+export { Locale, LanguageRange } from "/lib/time/util";
 export { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
 export { Instant } from "/lib/time/instant";
 export { LocalDate } from "/lib/time/local-date";

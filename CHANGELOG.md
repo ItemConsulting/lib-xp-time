@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-time
 
+## 1.2.0
+
+### Minor Changes
+
+- 4e5d813: Add support for java.util.Locale.LanguageRange
+
 ## 1.1.0
 
 ### Minor Changes

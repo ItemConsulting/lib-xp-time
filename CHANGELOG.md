@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-time
 
+## 1.2.1
+
+### Patch Changes
+
+- 7507613: Fix return type of `Locale.filterTags` from `Locale` to the correct `string`.
+
 ## 1.2.0
 
 ### Minor Changes

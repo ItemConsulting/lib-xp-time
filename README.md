@@ -107,11 +107,32 @@ const time = today.format(formatter);
 // time = "tirsdag 21. februar 2023 12:15:30"
 ```
 
+*Example of using hte `LanguageRange` utility to find the preferred locale among the ones supported by the application.*
+
+```typescript
+import { LanguageRange, Locale } from "/lib/time";
+import { getSupportedLocales } from "/lib/xp/i18n";
+import type { Request, Response } from "@enonic-types/core";
+
+export function get(req: Request): Response {
+  const languageRange = LanguageRange.parse(req.headers["Accept-Language"]);
+  
+  const locale: string = Locale.filterTags(
+    languageRange, 
+    getSupportedLocales(["i18n/phrases"])
+  )[0];
+  
+  ...
+}
+
+```
+
 ### Constants exposed from `"/lib/time"`
 The following classes is exposed/exported from `"/lib/time"`:
 * `DateTimeFormatter`
 * `DayOfWeek`
 * `Instant`
+* `LanguageRange`
 * `LocalDate`
 * `LocalDateTime`
 * `Locale`

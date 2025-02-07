@@ -34,7 +34,7 @@ export interface LocaleConstructor {
   UNICODE_LOCALE_EXTENSION: Locale;
   US: Locale;
   filter(priorityList: LanguageRange[], locales: Locale[]): Locale[];
-  filterTags(priorityList: LanguageRange[], tags: string[]): Locale[];
+  filterTags(priorityList: LanguageRange[], tags: string[]): string[];
   forLanguageTag(languageTag: string): Locale;
   getAvailableLocales(): Locale[];
   getDefault(): Locale;

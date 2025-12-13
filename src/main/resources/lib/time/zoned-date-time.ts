@@ -92,4 +92,8 @@ export interface ZonedDateTime {
   withZoneSameInstant(zone: ZoneId): ZonedDateTime;
   withZoneSameLocal(zone: ZoneId): ZonedDateTime;
   toString(): string;
+
+  // from java.time.chrono.ChronoZonedDateTime
+  toEpochSecond(): number;
+  toInstant(): Instant;
 }

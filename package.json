@@ -9,19 +9,19 @@
     "tsconfig.json"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.27.12",
+    "@changesets/cli": "^2.29.8",
     "@item-enonic-types/lib-testing": "^7.13.0",
-    "@swc/core": "^1.10.14",
-    "@types/node": "^22.13.1",
-    "eslint": "^9.19.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
-    "concurrently": "^9.1.2",
-    "glob": "^11.0.1",
-    "prettier": "^3.4.2",
-    "tsup": "^8.3.6",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.23.0"
+    "@swc/core": "^1.15.4",
+    "@types/node": "^25.0.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "concurrently": "^9.2.1",
+    "glob": "^13.0.0",
+    "prettier": "^3.7.4",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.49.0"
   },
   "dependencies": {
     "@item-enonic-types/nashorn-env": "^0.0.2"

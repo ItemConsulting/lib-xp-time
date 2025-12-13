@@ -112,4 +112,8 @@ export interface LocalDateTime {
   withNano(nano: number): LocalDateTime;
   withSecond(second: number): LocalDateTime;
   withYear(year: number): LocalDateTime;
+
+  // from java.time.chrono.ChronoLocalDateTime
+  toEpochSecond(offset: ZoneOffset): number;
+  toInstant(offset: ZoneOffset): Instant;
 }

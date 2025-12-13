@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-  include "no.item:lib-xp-time:1.1.0"
+  include "no.item:lib-xp-time:1.3.0"
 }
 ```
 
@@ -153,8 +153,6 @@ To build the project, run the following command
 ```bash
 enonic project build
 ```
-
-You will find the jar-file at _./build/libs/item.jar_
 
 ### Deploying locally
 

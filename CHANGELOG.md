@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-time
 
+## 1.3.0
+
+### Minor Changes
+
+- 36d604c: Add "getEpochSecond" and "toInstant" to "LocalDateTime" and "ZonedDateTime".
+
 ## 1.2.1
 
 ### Patch Changes

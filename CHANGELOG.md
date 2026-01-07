@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-time
 
+## 1.4.0
+
+### Minor Changes
+
+- 68e25e5: Add support for outputting localized display names for day-of-week and months
+
 ## 1.3.0
 
 ### Minor Changes

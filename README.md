@@ -167,3 +167,9 @@ enonic project deploy
 ```bash
 ./gradlew publish -P com.enonic.xp.app.production=true
 ```
+
+### Deploy to npm
+
+```bash
+npm publish
+```

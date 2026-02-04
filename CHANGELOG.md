@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-time
 
+## 1.5.0
+
+### Minor Changes
+
+- 4dd8023: Add support for Year
+
 ## 1.4.0
 
 ### Minor Changes

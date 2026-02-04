@@ -14,9 +14,10 @@ export { TextStyle } from "/lib/time/format/text-style";
 export { Instant } from "/lib/time/instant";
 export { LocalDate } from "/lib/time/local-date";
 export { LocalTime } from "/lib/time/local-time";
-export { Month } from "/lib/time/month";
+export { Month, type MonthNumber } from "/lib/time/month";
 export { OffsetDateTime } from "/lib/time/offset-date-time";
 export { OffsetTime } from "/lib/time/offset-time";
+export { Year } from "/lib/time/year";
 export { ZoneId } from "/lib/time/zone-id";
 export { ZoneOffset } from "/lib/time/zone-offset";
 

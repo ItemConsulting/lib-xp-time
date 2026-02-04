@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-  include "no.item:lib-xp-time:1.3.0"
+  include "no.item:lib-xp-time:1.5.0"
 }
 ```
 
@@ -140,6 +140,7 @@ The following classes is exposed/exported from `"/lib/time"`:
 * `Month`
 * `OffsetDateTime`
 * `OffsetTime`
+* `Year`
 * `ZonedDateTime`
 * `ZoneId`
 * `ZoneOffset`

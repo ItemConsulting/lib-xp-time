@@ -11,6 +11,7 @@ export { ZonedDateTime } from "/lib/time/zoned-date-time";
 export { Locale, LanguageRange } from "/lib/time/util";
 export { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
 export { TextStyle } from "/lib/time/format/text-style";
+export { FormatStyle } from "/lib/time/format/format-style";
 export { Instant } from "/lib/time/instant";
 export { LocalDate } from "/lib/time/local-date";
 export { LocalTime } from "/lib/time/local-time";

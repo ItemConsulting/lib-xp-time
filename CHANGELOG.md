@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-time
 
+## 1.6.1
+
+### Patch Changes
+
+- 374eb14: Expose FormatStyle from index.ts
+
 ## 1.6.0
 
 ### Minor Changes

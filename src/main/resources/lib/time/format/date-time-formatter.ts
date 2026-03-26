@@ -1,4 +1,5 @@
 import type { ZoneId, Locale } from "/lib/time";
+import type { FormatStyle } from "/lib/time/format/format-style";
 
 /**
  * Formatter for printing and parsing date-time objects.
@@ -29,6 +30,10 @@ export interface DateTimeFormatterConstructor {
   ISO_WEEK_DATE: DateTimeFormatter;
   ISO_ZONED_DATE_TIME: DateTimeFormatter;
   RFC_1123_DATE_TIME: DateTimeFormatter;
+  ofLocalizedDate(dateStyle: FormatStyle): DateTimeFormatter;
+  ofLocalizedTime(timeStyle: FormatStyle): DateTimeFormatter;
+  ofLocalizedDateTime(dateTimeStyle: FormatStyle): DateTimeFormatter;
+  ofLocalizedDateTime(dateStyle: FormatStyle, timeStyle: FormatStyle): DateTimeFormatter;
   ofPattern(pattern: string): DateTimeFormatter;
   ofPattern(pattern: string, locale: Locale): DateTimeFormatter;
 }

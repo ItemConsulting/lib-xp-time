@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-time
 
+## 1.6.0
+
+### Minor Changes
+
+- 1e44f2c: Add ability for DateTimeFormatter to use FormatStyle options to get localized formatter
+
 ## 1.5.0
 
 ### Minor Changes

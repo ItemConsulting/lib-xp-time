@@ -1,5 +1,29 @@
 # @item-enonic-types/lib-time
 
+## 2.0.0
+
+### Major Changes
+
+- f0f359c: Support Enonic XP 8, and drop support for XP 7.
+
+### Minor Changes
+
+- 53e1fed: Add `ChronoUnit`, the units of time from `NANOS` to `MILLENNIA`.
+  
+  The date-time classes get the methods that take a unit: `plus()` and `minus()` with an amount and a unit, `until()` to count the whole units to another date or time, and `truncatedTo()`.
+- 53e1fed: Add `Duration`, an exact amount of time in hours, minutes and seconds.
+  
+  It can be added to and subtracted from `Instant`, `LocalTime`, `LocalDateTime`, `OffsetTime`, `OffsetDateTime` and `ZonedDateTime` with `plus()` and `minus()`.
+- 53e1fed: Add `Period`, an amount of years, months and days that follows the calendar.
+  
+  It can be added to and subtracted from `LocalDate`, `LocalDateTime`, `OffsetDateTime` and `ZonedDateTime` with `plus()` and `minus()`, and `LocalDate.until()` gives the `Period` between two dates.
+
+### Patch Changes
+
+- 58e8aa6: Correct type declarations that did not match `java.time`.
+- 58e8aa6: Fix `formatDate()` throwing on date strings with a negative UTC offset, such as `2023-06-07T10:00:00-05:00`.
+- 58e8aa6: `formatDate()` now formats a `Date` in the system time zone when no `timezoneId` is given.
+
 ## 1.6.1
 
 ### Patch Changes

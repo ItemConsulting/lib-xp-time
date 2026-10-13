@@ -1,4 +1,5 @@
 import type {
+  ChronoUnit,
   DateTimeFormatter,
   DayOfWeek,
   Instant,
@@ -7,10 +8,12 @@ import type {
   Month,
   OffsetDateTime,
   OffsetTime,
+  Period,
   ZonedDateTime,
   ZoneId,
   ZoneOffset,
 } from "/lib/time";
+import type { Temporal } from "/lib/time/temporal/temporal";
 
 /**
  * A date without a time-zone in the ISO-8601 calendar system, such as 2007-12-03.
@@ -36,6 +39,18 @@ interface LocalDateConstructor {
 }
 
 export interface LocalDate {
+  minus(amountToSubtract: Period): LocalDate;
+  minus(amountToSubtract: number, unit: ChronoUnit): LocalDate;
+  plus(amountToAdd: Period): LocalDate;
+  plus(amountToAdd: number, unit: ChronoUnit): LocalDate;
+  /**
+   * The years, months and days until the other date
+   */
+  until(endDateExclusive: LocalDate): Period;
+  /**
+   * The number of whole units until the other one. It is negative if the other one is earlier.
+   */
+  until(endExclusive: Temporal, unit: ChronoUnit): number;
   atStartOfDay(): LocalDateTime;
   atStartOfDay(zone: ZoneId): ZonedDateTime;
   atTime(hour: number, minute: number): LocalDateTime;

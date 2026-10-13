@@ -1,35 +1,12 @@
-import type {
-  Instant,
-  LocalDate,
-  LocalDateTime,
-  Locale,
-  LocalTime,
-  OffsetDateTime,
-  OffsetTime,
-  Year,
-  ZonedDateTime,
-  ZoneId,
-} from "/lib/time";
+import type { Locale, ZoneId } from "/lib/time";
 import type { FormatStyle } from "/lib/time/format/format-style";
+import type { Temporal } from "/lib/time/temporal/temporal";
 
 /**
  * Formatter for printing and parsing date-time objects.
  * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/format/DateTimeFormatter.html}
  */
 export const DateTimeFormatter = Java.type<DateTimeFormatterConstructor>("java.time.format.DateTimeFormatter");
-
-/**
- * The date-time objects in this library that a formatter can print
- */
-export type Temporal =
-  | Instant
-  | LocalDate
-  | LocalDateTime
-  | LocalTime
-  | OffsetDateTime
-  | OffsetTime
-  | Year
-  | ZonedDateTime;
 
 export interface DateTimeFormatter {
   format(temporal: Temporal): string;

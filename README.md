@@ -75,6 +75,70 @@ const time = fiftyMinutesAgo.toLocalTime();
 // time = "11:25:30"
 ```
 
+### Amounts of time with `Duration`, `Period` and `ChronoUnit`
+
+There are two kinds of amounts of time, and they behave differently:
+
+- A `Duration` is an exact amount of time in hours, minutes and seconds. A day is always 24 hours. Use it for what a
+  stopwatch would measure, such as the length of a video or how long ago something was published.
+- A `Period` is an amount of years, months and days that follows the calendar. Use it for what a calendar would
+  measure, such as an age or "valid for 6 months".
+
+```typescript
+import { Duration, Instant, LocalDate, Period } from "/lib/time";
+
+const published = Instant.parse("2023-02-08T10:15:30Z");
+const now = Instant.parse("2023-02-08T11:45:30Z");
+const sincePublished = Duration.between(published, now);
+// sincePublished.toMinutes() = 90
+// sincePublished.toString() = "PT1H30M"
+
+const age = Period.between(LocalDate.parse("1990-05-17"), LocalDate.parse("2023-02-08"));
+// age.getYears() = 32
+```
+
+Both can be added to and subtracted from the date-time classes with `plus()` and `minus()`, and both can be parsed
+from ISO-8601 text such as `"PT1H30M"` and `"P1Y2M3D"`. A `Duration` can only be added to something with a time of
+day, and a `Period` only to something with a date.
+
+```typescript
+import { Duration, LocalDate, LocalDateTime, Period } from "/lib/time";
+
+const expires = LocalDate.parse("2023-01-31").plus(Period.ofMonths(1));
+// expires = "2023-02-28"
+
+const ends = LocalDateTime.parse("2023-02-08T23:15:30").plus(Duration.ofMinutes(90));
+// ends = "2023-02-09T00:45:30"
+```
+
+The difference between the two shows when the clocks change. Summer time in Oslo started on 26 March 2023, so that
+day was only 23 hours long:
+
+```typescript
+import { Duration, Period, ZonedDateTime } from "/lib/time";
+
+const dayBefore = ZonedDateTime.parse("2023-03-25T12:00:00+01:00[Europe/Oslo]");
+
+dayBefore.plus(Period.ofDays(1));   // "2023-03-26T12:00+02:00[Europe/Oslo]", the same time the next day
+dayBefore.plus(Duration.ofDays(1)); // "2023-03-26T13:00+02:00[Europe/Oslo]", exactly 24 hours later
+```
+
+`ChronoUnit` is the list of units, from `NANOS` to `MILLENNIA`. It counts whole units between two dates or times, and
+is used with `plus()`, `minus()`, `until()` and `truncatedTo()`.
+
+```typescript
+import { ChronoUnit, LocalDate, LocalDateTime } from "/lib/time";
+
+const daysUntilEvent = ChronoUnit.DAYS.between(LocalDate.parse("2023-02-08"), LocalDate.parse("2023-03-01"));
+// daysUntilEvent = 21
+
+const inThreeWeeks = LocalDate.parse("2023-02-08").plus(3, ChronoUnit.WEEKS);
+// inThreeWeeks = "2023-03-01"
+
+const startOfHour = LocalDateTime.parse("2023-02-08T10:15:30").truncatedTo(ChronoUnit.HOURS);
+// startOfHour = "2023-02-08T10:00"
+```
+
 ### Formatting dates with `formatDate()`
 
 The utility function `formatDate()` formats a date in one call. It takes a
@@ -168,8 +232,10 @@ const isKnownTimeZone = ZoneId.getAvailableZoneIds().contains("Europe/Oslo");
 
 The following classes are exported from `"/lib/time"`:
 
+* `ChronoUnit`
 * `DateTimeFormatter`
 * `DayOfWeek`
+* `Duration`
 * `FormatStyle`
 * `Instant`
 * `LanguageRange`
@@ -180,13 +246,15 @@ The following classes are exported from `"/lib/time"`:
 * `Month`
 * `OffsetDateTime`
 * `OffsetTime`
+* `Period`
 * `TextStyle`
 * `Year`
 * `ZonedDateTime`
 * `ZoneId`
 * `ZoneOffset`
 
-Together with the function `formatDate()`, and the types `JavaList`, `JavaSet` and `MonthNumber`.
+Together with the function `formatDate()`, and the types `JavaList`, `JavaSet`, `MonthNumber`,
+`Temporal`, `TemporalAmount` and `TimeTemporal`.
 
 ## Development
 

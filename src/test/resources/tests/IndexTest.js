@@ -4,7 +4,9 @@ const time = require("/lib/time");
 // What "/lib/time" exposes, and the module each one can also be required from
 const EXPORTS = {
   DayOfWeek: "/lib/time/day-of-week",
+  ChronoUnit: "/lib/time/temporal/chrono-unit",
   DateTimeFormatter: "/lib/time/format/date-time-formatter",
+  Duration: "/lib/time/duration",
   FormatStyle: "/lib/time/format/format-style",
   TextStyle: "/lib/time/format/text-style",
   Instant: "/lib/time/instant",
@@ -14,6 +16,7 @@ const EXPORTS = {
   Month: "/lib/time/month",
   OffsetDateTime: "/lib/time/offset-date-time",
   OffsetTime: "/lib/time/offset-time",
+  Period: "/lib/time/period",
   LanguageRange: "/lib/time/util",
   Locale: "/lib/time/util",
   Year: "/lib/time/year",

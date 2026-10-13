@@ -10,6 +10,7 @@
   "files": [
     "*.d.ts",
     "format/*.d.ts",
+    "temporal/*.d.ts",
     "tsconfig.json"
   ],
   "devDependencies": {
@@ -32,7 +33,7 @@
     "lint": "biome ci",
     "lint:fix": "biome check --write",
     "prepublishOnly": "tsc --project src/main/resources/tsconfig.json --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/* .",
-    "postpublish": "rm ./*.d.ts && rm -r ./format",
+    "postpublish": "rm ./*.d.ts && rm -r ./format ./temporal",
     "release": "changeset publish",
     "versioning": "changeset version && npm i --package-lock-only && node .changeset/gradle-version.mjs"
   }

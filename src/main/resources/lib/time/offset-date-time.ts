@@ -1,4 +1,5 @@
 import type {
+  ChronoUnit,
   DateTimeFormatter,
   DayOfWeek,
   Instant,
@@ -11,6 +12,7 @@ import type {
   ZoneId,
   ZoneOffset,
 } from "/lib/time";
+import type { Temporal, TemporalAmount } from "/lib/time/temporal/temporal";
 
 /**
  * A date-time with an offset from UTC/Greenwich in the ISO-8601 calendar system, such as 2007-12-03T10:15:30+01:00.
@@ -43,6 +45,18 @@ export interface OffsetDateTimeConstructor {
 }
 
 export interface OffsetDateTime {
+  minus(amountToSubtract: TemporalAmount): OffsetDateTime;
+  minus(amountToSubtract: number, unit: ChronoUnit): OffsetDateTime;
+  plus(amountToAdd: TemporalAmount): OffsetDateTime;
+  plus(amountToAdd: number, unit: ChronoUnit): OffsetDateTime;
+  /**
+   * Sets every unit smaller than the given one to zero, so truncating to hours gives the start of the hour
+   */
+  truncatedTo(unit: ChronoUnit): OffsetDateTime;
+  /**
+   * The number of whole units until the other one. It is negative if the other one is earlier.
+   */
+  until(endExclusive: Temporal, unit: ChronoUnit): number;
   atZoneSameInstant(zone: ZoneId): ZonedDateTime;
   atZoneSimilarLocal(zone: ZoneId): ZonedDateTime;
   compareTo(other: OffsetDateTime): number;

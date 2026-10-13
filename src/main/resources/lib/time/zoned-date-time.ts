@@ -1,4 +1,5 @@
 import type {
+  ChronoUnit,
   DateTimeFormatter,
   DayOfWeek,
   Instant,
@@ -10,6 +11,7 @@ import type {
   ZoneId,
   ZoneOffset,
 } from "/lib/time";
+import type { Temporal, TemporalAmount } from "/lib/time/temporal/temporal";
 
 /**
  * ZonedDateTime is an immutable representation of a date-time with a time-zone.
@@ -41,6 +43,18 @@ export interface ZonedDateTimeConstructor {
 }
 
 export interface ZonedDateTime {
+  minus(amountToSubtract: TemporalAmount): ZonedDateTime;
+  minus(amountToSubtract: number, unit: ChronoUnit): ZonedDateTime;
+  plus(amountToAdd: TemporalAmount): ZonedDateTime;
+  plus(amountToAdd: number, unit: ChronoUnit): ZonedDateTime;
+  /**
+   * Sets every unit smaller than the given one to zero, so truncating to hours gives the start of the hour
+   */
+  truncatedTo(unit: ChronoUnit): ZonedDateTime;
+  /**
+   * The number of whole units until the other one. It is negative if the other one is earlier.
+   */
+  until(endExclusive: Temporal, unit: ChronoUnit): number;
   format(formatter: DateTimeFormatter): string;
   getDayOfMonth(): number;
   getDayOfWeek(): DayOfWeek;

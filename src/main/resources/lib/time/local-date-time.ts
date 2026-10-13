@@ -1,4 +1,5 @@
 import type {
+  ChronoUnit,
   DateTimeFormatter,
   DayOfWeek,
   Instant,
@@ -10,6 +11,7 @@ import type {
   ZoneId,
   ZoneOffset,
 } from "/lib/time";
+import type { Temporal, TemporalAmount } from "/lib/time/temporal/temporal";
 
 /**
  * LocalDateTime is an immutable date-time object that represents a date-time
@@ -52,6 +54,18 @@ export interface LocalDateTimeConstructor {
 }
 
 export interface LocalDateTime {
+  minus(amountToSubtract: TemporalAmount): LocalDateTime;
+  minus(amountToSubtract: number, unit: ChronoUnit): LocalDateTime;
+  plus(amountToAdd: TemporalAmount): LocalDateTime;
+  plus(amountToAdd: number, unit: ChronoUnit): LocalDateTime;
+  /**
+   * Sets every unit smaller than the given one to zero, so truncating to hours gives the start of the hour
+   */
+  truncatedTo(unit: ChronoUnit): LocalDateTime;
+  /**
+   * The number of whole units until the other one. It is negative if the other one is earlier.
+   */
+  until(endExclusive: Temporal, unit: ChronoUnit): number;
   atOffset(offset: ZoneOffset): OffsetDateTime;
   atZone(zone: ZoneId): ZonedDateTime;
   format(formatter: DateTimeFormatter): string;

@@ -1,4 +1,5 @@
-import type { OffsetDateTime, ZonedDateTime, ZoneId, ZoneOffset } from "/lib/time";
+import type { ChronoUnit, Duration, OffsetDateTime, ZonedDateTime, ZoneId, ZoneOffset } from "/lib/time";
+import type { Temporal } from "/lib/time/temporal/temporal";
 
 /**
  * An instantaneous point on the time-line.
@@ -17,6 +18,18 @@ export interface InstantConstructor {
 }
 
 export interface Instant {
+  minus(amountToSubtract: Duration): Instant;
+  minus(amountToSubtract: number, unit: ChronoUnit): Instant;
+  plus(amountToAdd: Duration): Instant;
+  plus(amountToAdd: number, unit: ChronoUnit): Instant;
+  /**
+   * Sets every unit smaller than the given one to zero, so truncating to hours gives the start of the hour
+   */
+  truncatedTo(unit: ChronoUnit): Instant;
+  /**
+   * The number of whole units until the other one. It is negative if the other one is earlier.
+   */
+  until(endExclusive: Temporal, unit: ChronoUnit): number;
   atOffset(offset: ZoneOffset): OffsetDateTime;
   atZone(zone: ZoneId): ZonedDateTime;
   compareTo(otherInstant: Instant): number;

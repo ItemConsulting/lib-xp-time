@@ -6,6 +6,7 @@ import { ZoneId } from "/lib/time/zone-id";
 import { ZonedDateTime } from "/lib/time/zoned-date-time";
 
 export { DayOfWeek } from "/lib/time/day-of-week";
+export { Duration } from "/lib/time/duration";
 export { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
 export { FormatStyle } from "/lib/time/format/format-style";
 export { TextStyle } from "/lib/time/format/text-style";
@@ -16,6 +17,9 @@ export { LocalTime } from "/lib/time/local-time";
 export { Month, type MonthNumber } from "/lib/time/month";
 export { OffsetDateTime } from "/lib/time/offset-date-time";
 export { OffsetTime } from "/lib/time/offset-time";
+export { Period } from "/lib/time/period";
+export { ChronoUnit } from "/lib/time/temporal/chrono-unit";
+export type { Temporal, TemporalAmount, TimeTemporal } from "/lib/time/temporal/temporal";
 export { type JavaList, type JavaSet, LanguageRange, Locale } from "/lib/time/util";
 export { Year } from "/lib/time/year";
 export { ZoneId } from "/lib/time/zone-id";

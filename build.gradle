@@ -1,12 +1,17 @@
 plugins {
   id 'java'
   id 'maven-publish'
-  id "com.github.node-gradle.node" version "7.0.2"
+  id "com.github.node-gradle.node" version "7.1.0"
   id 'com.enonic.xp.base' version '3.5.2'
 }
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+// XP 7 targets Java 11, and its test dependencies (Mockito 1.x) do not run on Java 17 or newer.
+// The toolchain keeps compilation and tests on Java 11 whichever JDK runs Gradle itself.
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(11)
+  }
+}
 
 dependencies {
   implementation "com.enonic.xp:script-api:${xpVersion}"
@@ -20,7 +25,8 @@ repositories {
 
 node {
   download = true
-  version = "22.12.0"
+  // Single source of truth for the Node version, shared with .github/workflows and nvm
+  version = file(".nvmrc").text.trim()
 }
 
 processResources {
@@ -79,7 +85,11 @@ publishing {
   repositories {
     maven {
       name = "itemtestRepository"
-      url = "https://repo.itemtest.no/releases"
+      // Only stable versions reach the releases repository: a changesets prerelease (1.0.0-beta.0 on npm) is versioned
+      // 1.0.0-SNAPSHOT here by .changeset/gradle-version.mjs
+      url = version.endsWith("SNAPSHOT")
+        ? "https://repo.itemtest.no/snapshots"
+        : "https://repo.itemtest.no/releases"
       credentials(PasswordCredentials)
       authentication {
         basic(BasicAuthentication)
@@ -89,9 +99,9 @@ publishing {
   publications {
     mavenJava(MavenPublication) {
       from components.java
-      groupId group
-      artifactId projectName
-      version version
+      groupId = project.group
+      artifactId = projectName
+      version = project.version
     }
   }
 }

@@ -1,18 +1,18 @@
 {
-  "include": [
-    "**/*.ts"
-  ],
+  "include": ["**/*.ts", "**/*.mts"],
   "exclude": [
     "**/*.d.ts",
-    "src/**/*.*", // Avoid Enonic XP source files
+    "src/**/*.*" // Avoid Enonic XP source files
   ],
 
   "compilerOptions": {
+    "strict": true,
     "lib": [
       "es2023" // string.replaceAll
     ],
-    "types": [
-      "node"
-    ],
-  },
+    "types": ["node"],
+    "skipLibCheck": true,
+    "module": "preserve",
+    "moduleResolution": "bundler"
+  }
 }

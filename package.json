@@ -3,6 +3,10 @@
   "version": "1.6.1",
   "description": "Type definitions for lib-time",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItemConsulting/lib-xp-time.git"
+  },
   "files": [
     "*.d.ts",
     "format/*.d.ts",
@@ -11,7 +15,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
     "@changesets/cli": "^3.0.3",
-    "@item-enonic-types/lib-testing": "^7.13.0",
+    "@item-enonic-types/lib-testing": "^8.0.0",
     "@swc/core": "^1.16.18",
     "@types/node": "^26.6.5",
     "concurrently": "^10.0.6",

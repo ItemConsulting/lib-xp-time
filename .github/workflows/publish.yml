@@ -42,14 +42,11 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "npm"
 
-      # Publishing the jar means building it, so the publish job needs the same JDKs as CI
+      # Publishing the jar means building it, so the publish job needs the same JDK as CI
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
-          # The last version listed becomes the default JDK, the one that runs Gradle
-          java-version: |
-            11
-            25
+          java-version: 25
 
       - uses: gradle/actions/setup-gradle@v6
 

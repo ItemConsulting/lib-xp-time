@@ -28,15 +28,11 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "npm"
 
-      # Gradle 9 needs a JVM of 17+ to run, while build.gradle pins a Java 11 toolchain for compiling
-      # and testing against XP 7. Gradle finds the Java 11 install through the toolchain.
+      # The com.enonic.xp.settings plugin needs a Gradle JVM of 21+, and XP 8 compiles against Java 25
       - uses: actions/setup-java@v6
         with:
           distribution: temurin
-          # The last version listed becomes the default JDK, the one that runs Gradle
-          java-version: |
-            11
-            25
+          java-version: 25
 
       - uses: gradle/actions/setup-gradle@v6
 
@@ -44,6 +40,6 @@ jobs:
       # the `npm install` Gradle runs through npmInstall would silently repair.
       - run: npm ci
 
-      # Runs check (biome + tsc, via npmCheck), runs tsdown (via npmBuild), runs the Nashorn tests
-      # against its output and builds the jar.
+      # Runs check (biome + tsc, via npmCheck), runs tsdown (via npmBuild), runs the tests against its
+      # output on both Nashorn and GraalJS, and builds the jar.
       - run: ./gradlew build

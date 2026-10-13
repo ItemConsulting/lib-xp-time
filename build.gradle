@@ -2,31 +2,43 @@ plugins {
   id 'java'
   id 'maven-publish'
   id "com.github.node-gradle.node" version "7.1.0"
-  id 'com.enonic.xp.base' version '3.5.2'
-}
-
-// XP 7 targets Java 11, and its test dependencies (Mockito 1.x) do not run on Java 17 or newer.
-// The toolchain keeps compilation and tests on Java 11 whichever JDK runs Gradle itself.
-java {
-  toolchain {
-    languageVersion = JavaLanguageVersion.of(11)
-  }
+  id 'com.enonic.xp.base'
 }
 
 dependencies {
-  implementation "com.enonic.xp:script-api:${xpVersion}"
-  testImplementation "com.enonic.xp:testing:${xpVersion}"
+  implementation xplibs.api.script
+  testImplementation xplibs.testing
+
+  // XP's testing jar only exposes JUnit at runtime, and without the engine. Same JUnit version as XP 8.0.0 uses.
+  testImplementation platform("org.junit:junit-bom:6.1.0")
+  testImplementation "org.junit.jupiter:junit-jupiter"
+  testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+
+  // The GraalJS language for the `testGraalJS` task. XP's testing jar only ships it from 8.1, so until then it is
+  // declared here, in the version of the Graal polyglot API that XP 8.0.0 brings along.
+  testRuntimeOnly "org.graalvm.polyglot:js:25.0.3"
 }
 
-test {
+// XP 8 can run either engine, so the library is tested on both. The first one is what `test` runs on,
+// and the plugin adds a `testGraalJS` task for the other, which `check` depends on.
+xp {
+  scriptEngines = ["Nashorn", "GraalJS"]
+}
+
+// Applies to `test` and to the `testGraalJS` task the plugin adds
+tasks.withType(Test).configureEach {
+  useJUnitPlatform()
+
   // DatesTest asserts on what formatDate() gives when it falls back to the system time zone,
   // so pin the zone instead of inheriting the machine's (UTC on GitHub Actions).
   systemProperty "user.timezone", "Europe/Oslo"
 }
 
 repositories {
-  mavenCentral()
+  // Must come before Maven Central: XP's artifacts are on both, but Central lacks the core-api test-fixtures jar
+  // that com.enonic.xp:testing needs, and Gradle only looks in the first repository that has the module.
   xp.enonicRepo()
+  mavenCentral()
 }
 
 node {

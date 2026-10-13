@@ -1,5 +1,5 @@
 import com.enonic.xp.testing.ScriptTestSupport;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DatesServiceTest extends ScriptTestSupport {
 

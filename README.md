@@ -4,10 +4,13 @@ This library enables the usage of classes from the [`java.time`](https://docs.or
 Other JavaScript-based time libraries like _Moment.js_ or _date-fns_ will negatively impact your bundle size and build time. This library is only a **thin TypeScript-wrapper** around the excellent core `java.time` library already present in your system!
 
 [![](https://repo.itemtest.no/api/badge/latest/releases/no/item/lib-xp-time)](https://repo.itemtest.no/#/releases/no/item/lib-xp-time)
+![Enonic XP8 badge](https://market.enonic.com/badges/xp8.svg)
 
 <img src="https://github.com/ItemConsulting/lib-xp-time/raw/main/docs/icon.svg?sanitize=true" width="150">
 
 ## Installation
+
+Version 2 of this library requires Enonic XP 8, and is built against XP 8.0.0. Use version 1.x for Enonic XP 7.
 
 To install this library you need to add a new dependency to your app's build.gradle file.
 
@@ -19,7 +22,7 @@ repositories {
 }
 
 dependencies {
-  include "no.item:lib-xp-time:1.5.0"
+  include "no.item:lib-xp-time:2.0.0"
 }
 ```
 

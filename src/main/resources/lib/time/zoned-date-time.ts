@@ -13,7 +13,7 @@ import type {
 
 /**
  * ZonedDateTime is an immutable representation of a date-time with a time-zone.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZonedDateTime.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/ZonedDateTime.html}
  */
 export const ZonedDateTime = Java.type<ZonedDateTimeConstructor>("java.time.ZonedDateTime");
 

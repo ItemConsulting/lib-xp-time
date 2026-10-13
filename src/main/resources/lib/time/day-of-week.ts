@@ -3,7 +3,7 @@ import type { Locale } from "./util";
 
 /**
  *  DayOfWeek is an enum representing the 7 days of the week - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/DayOfWeek.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/DayOfWeek.html}
  */
 export const DayOfWeek = Java.type<DayOfWeekConstructor>("java.time.DayOfWeek");
 

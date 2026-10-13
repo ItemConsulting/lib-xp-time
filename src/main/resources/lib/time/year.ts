@@ -5,7 +5,7 @@ import type { ZoneId } from "./zone-id";
 /**
  * A year in the ISO-8601 calendar system, such as 2007.
  * Year is an immutable date-time object that represents a year. Any field that can be derived from a year can be obtained.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Year.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Year.html}
  */
 export const Year = Java.type<YearConstructor>("java.time.Year");
 
@@ -23,7 +23,7 @@ export interface Year {
   toString(): string;
   hashCode(): number;
   atDay(dayOfYear: number): LocalDate;
-  compareTo(other: Year): boolean;
+  compareTo(other: Year): number;
   format(formatter: DateTimeFormatter): string;
   isAfter(other: Year): boolean;
   isBefore(other: Year): boolean;

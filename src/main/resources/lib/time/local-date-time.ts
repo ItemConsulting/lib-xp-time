@@ -13,7 +13,7 @@ import type {
 
 /**
  * LocalDateTime is an immutable date-time object that represents a date-time
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalDateTime.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/LocalDateTime.html}
  */
 export const LocalDateTime = Java.type<LocalDateTimeConstructor>("java.time.LocalDateTime");
 
@@ -35,24 +35,8 @@ export interface LocalDateTimeConstructor {
     second: number,
     nanoOfSecond: number,
   ): LocalDateTime;
-  of(
-    year: number,
-    month: Month,
-    dayOfMonth: number,
-    hour: number,
-    minute: number,
-    second: number,
-    nanoOfSecond: number,
-  ): LocalDateTime;
-  of(
-    year: number,
-    month: Month,
-    dayOfMonth: number,
-    hour: number,
-    minute: number,
-    second: number,
-    nanoOfSecond: number,
-  ): LocalDateTime;
+  of(year: number, month: Month, dayOfMonth: number, hour: number, minute: number): LocalDateTime;
+  of(year: number, month: Month, dayOfMonth: number, hour: number, minute: number, second: number): LocalDateTime;
   of(
     year: number,
     month: Month,

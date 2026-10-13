@@ -2,7 +2,7 @@
  * A time-zone offset from Greenwich/UTC, such as +02:00.
  *
  * A time-zone offset is the amount of time that a time-zone differs from Greenwich/UTC. This is usually a fixed number of hours and minutes.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/ZoneOffset.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/ZoneOffset.html}
  */
 export const ZoneOffset = Java.type<ZoneOffsetConstructor>("java.time.ZoneOffset");
 

@@ -29,7 +29,7 @@ xp {
 tasks.withType(Test).configureEach {
   useJUnitPlatform()
 
-  // DatesTest asserts on what formatDate() gives when it falls back to the system time zone,
+  // The tests assert on what formatDate() and ZoneId.systemDefault() give for the system time zone,
   // so pin the zone instead of inheriting the machine's (UTC on GitHub Actions).
   systemProperty "user.timezone", "Europe/Oslo"
 }

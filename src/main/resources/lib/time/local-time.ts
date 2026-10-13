@@ -4,7 +4,7 @@ import type { DateTimeFormatter, Instant, LocalDate, LocalDateTime, OffsetTime, 
  * A time without a time-zone in the ISO-8601 calendar system, such as 10:15:30.
  *
  * LocalTime is an immutable date-time object that represents a time, often viewed as hour-minute-second. Time is represented to nanosecond precision. For example, the value "13:45.30.123456789" can be stored in a LocalTime.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/LocalTime.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/LocalTime.html}
  */
 export const LocalTime = Java.type<LocalTimeConstructor>("java.time.LocalTime");
 

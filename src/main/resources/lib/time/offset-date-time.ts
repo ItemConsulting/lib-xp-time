@@ -16,7 +16,7 @@ import type {
  * A date-time with an offset from UTC/Greenwich in the ISO-8601 calendar system, such as 2007-12-03T10:15:30+01:00.
  *
  * OffsetDateTime is an immutable representation of a date-time with an offset. This class stores all date and time fields, to a precision of nanoseconds, as well as the offset from UTC/Greenwich. For example, the value "2nd October 2007 at 13:45:30.123456789 +02:00" can be stored in an OffsetDateTime.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/OffsetDateTime.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/OffsetDateTime.html}
  */
 export const OffsetDateTime = Java.type<OffsetDateTimeConstructor>("java.time.OffsetDateTime");
 

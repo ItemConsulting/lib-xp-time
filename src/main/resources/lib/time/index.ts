@@ -16,7 +16,7 @@ export { LocalTime } from "/lib/time/local-time";
 export { Month, type MonthNumber } from "/lib/time/month";
 export { OffsetDateTime } from "/lib/time/offset-date-time";
 export { OffsetTime } from "/lib/time/offset-time";
-export { LanguageRange, Locale } from "/lib/time/util";
+export { type JavaList, type JavaSet, LanguageRange, Locale } from "/lib/time/util";
 export { Year } from "/lib/time/year";
 export { ZoneId } from "/lib/time/zone-id";
 export { ZoneOffset } from "/lib/time/zone-offset";
@@ -24,7 +24,7 @@ export { ZonedDateTime } from "/lib/time/zoned-date-time";
 
 /**
  * Format a date to a string
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#patterns}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/format/DateTimeFormatter.html#patterns}
  *
  * @param date The date as a string
  * @param pattern The shape of the output string
@@ -48,10 +48,15 @@ export function formatDate({ date, pattern, locale, timezoneId }: FormatDatePara
     }
   }
 
-  const formatter =
-    timezoneId && zoneIdOrDefault
-      ? DateTimeFormatter.ofPattern(pattern, localeOrDefault).withZone(zoneIdOrDefault)
-      : DateTimeFormatter.ofPattern(pattern, localeOrDefault);
+  // A Date is a point in time, and toISOString() below writes it in UTC. Without a time zone to convert it to,
+  // it would be printed in UTC as well, so it is shown in the system time zone, like the Date itself does.
+  if (!zoneIdOrDefault && typeof date !== "string") {
+    zoneIdOrDefault = ZoneId.systemDefault();
+  }
+
+  const formatter = zoneIdOrDefault
+    ? DateTimeFormatter.ofPattern(pattern, localeOrDefault).withZone(zoneIdOrDefault)
+    : DateTimeFormatter.ofPattern(pattern, localeOrDefault);
 
   const dateStr = typeof date === "string" ? date : date.toISOString();
 
@@ -66,8 +71,11 @@ function isDateWithoutTime(dateStr: string): boolean {
   return dateStr.length === 10;
 }
 
+// Ends with "Z" or a UTC offset such as "+02:00" or "-05:00", optionally followed by a zone id in brackets
+const ZONED_DATE_TIME_SUFFIX = /(Z|[+-]\d{2}:\d{2}(:\d{2})?)(\[[^\]]+\])?$/;
+
 function isZonedDateTime(date: string): boolean {
-  return date.charAt(date.length - 1) === "Z" || date.indexOf("+") !== -1;
+  return ZONED_DATE_TIME_SUFFIX.test(date);
 }
 
 export interface FormatDateParams {

@@ -4,7 +4,7 @@ import type { OffsetDateTime, ZonedDateTime, ZoneId, ZoneOffset } from "/lib/tim
  * An instantaneous point on the time-line.
  *
  * This class models a single instantaneous point on the time-line. This might be used to record event time-stamps in the application.
- * @see {@link https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/Instant.html}
+ * @see {@link https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Instant.html}
  */
 export const Instant = Java.type<InstantConstructor>("java.time.Instant");
 

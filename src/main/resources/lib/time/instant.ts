@@ -1,4 +1,4 @@
-import type { ZoneOffset, OffsetDateTime, ZoneId, ZonedDateTime } from "/lib/time";
+import type { OffsetDateTime, ZonedDateTime, ZoneId, ZoneOffset } from "/lib/time";
 
 /**
  * An instantaneous point on the time-line.

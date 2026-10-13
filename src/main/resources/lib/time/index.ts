@@ -1,26 +1,26 @@
-import { LocalDate } from "/lib/time/local-date";
-import { ZoneId } from "/lib/time/zone-id";
-import { LocalDateTime } from "/lib/time/local-date-time";
-import { ZonedDateTime } from "/lib/time/zoned-date-time";
-import { Locale } from "/lib/time/util";
 import { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
+import { LocalDate } from "/lib/time/local-date";
+import { LocalDateTime } from "/lib/time/local-date-time";
+import { Locale } from "/lib/time/util";
+import { ZoneId } from "/lib/time/zone-id";
+import { ZonedDateTime } from "/lib/time/zoned-date-time";
 
 export { DayOfWeek } from "/lib/time/day-of-week";
-export { LocalDateTime } from "/lib/time/local-date-time";
-export { ZonedDateTime } from "/lib/time/zoned-date-time";
-export { Locale, LanguageRange } from "/lib/time/util";
 export { DateTimeFormatter } from "/lib/time/format/date-time-formatter";
-export { TextStyle } from "/lib/time/format/text-style";
 export { FormatStyle } from "/lib/time/format/format-style";
+export { TextStyle } from "/lib/time/format/text-style";
 export { Instant } from "/lib/time/instant";
 export { LocalDate } from "/lib/time/local-date";
+export { LocalDateTime } from "/lib/time/local-date-time";
 export { LocalTime } from "/lib/time/local-time";
 export { Month, type MonthNumber } from "/lib/time/month";
 export { OffsetDateTime } from "/lib/time/offset-date-time";
 export { OffsetTime } from "/lib/time/offset-time";
+export { LanguageRange, Locale } from "/lib/time/util";
 export { Year } from "/lib/time/year";
 export { ZoneId } from "/lib/time/zone-id";
 export { ZoneOffset } from "/lib/time/zone-offset";
+export { ZonedDateTime } from "/lib/time/zoned-date-time";
 
 /**
  * Format a date to a string
@@ -39,7 +39,7 @@ export function formatDate({ date, pattern, locale, timezoneId }: FormatDatePara
 
   const localeOrDefault = locale ? new Locale(locale) : Locale.getDefault();
 
-  let zoneIdOrDefault = undefined;
+  let zoneIdOrDefault: ZoneId | undefined;
   if (timezoneId) {
     try {
       zoneIdOrDefault = ZoneId.of(timezoneId);

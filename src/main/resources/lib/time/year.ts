@@ -1,6 +1,6 @@
-import type { ZoneId } from "./zone-id";
-import type { LocalDate } from "./local-date";
 import type { DateTimeFormatter } from "./format/date-time-formatter";
+import type { LocalDate } from "./local-date";
+import type { ZoneId } from "./zone-id";
 
 /**
  * A year in the ISO-8601 calendar system, such as 2007.

@@ -9,31 +9,27 @@
     "tsconfig.json"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.29.8",
+    "@biomejs/biome": "^2.5.15",
+    "@changesets/cli": "^3.0.3",
     "@item-enonic-types/lib-testing": "^7.13.0",
-    "@swc/core": "^1.15.8",
-    "@types/node": "^25.0.3",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
-    "concurrently": "^9.2.1",
-    "glob": "^13.0.0",
-    "prettier": "^3.7.4",
-    "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.52.0"
+    "@swc/core": "^1.16.18",
+    "@types/node": "^26.6.5",
+    "concurrently": "^10.0.6",
+    "tsdown": "^0.23.1",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "@item-enonic-types/nashorn-env": "^0.0.2"
   },
   "scripts": {
-    "build": "node tsup/anyServerFiles.js && npx tsup -d build/resources/main",
+    "build": "tsdown",
     "check": "concurrently -c auto -g --timings npm:check:types npm:lint",
-    "check:types": "node tsup/anyServerFiles.js && npx tsc --noEmit -p src/main/resources/tsconfig.json || exit 0",
-    "lint": "eslint --cache \"src/main/resources/**/*.ts\"",
+    "check:types": "tsc --noEmit -p src/main/resources/tsconfig.json",
+    "lint": "biome ci",
+    "lint:fix": "biome check --write",
     "prepublishOnly": "tsc --project src/main/resources/tsconfig.json --declarationDir build/types --emitDeclarationOnly true --declaration true && cp -r ./build/types/* .",
     "postpublish": "rm ./*.d.ts && rm -r ./format",
-    "release": "npm run build",
-    "versioning": "npx changeset version && npm i --package-lock-only && NEW_VERSION=$(node -p \"require('./package.json').version\") && sed -i \"s/version.*/version = ${NEW_VERSION}/\" gradle.properties"
+    "release": "changeset publish",
+    "versioning": "changeset version && npm i --package-lock-only && node .changeset/gradle-version.mjs"
   }
 }

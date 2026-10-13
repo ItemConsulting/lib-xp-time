@@ -1,5 +1,5 @@
-import { TextStyle } from "./format/text-style";
-import { Locale } from "./util";
+import type { TextStyle } from "./format/text-style";
+import type { Locale } from "./util";
 
 /**
  *  DayOfWeek is an enum representing the 7 days of the week - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday.

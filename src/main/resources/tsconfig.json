@@ -1,18 +1,19 @@
 {
-  "include": [
-    "**/*.ts"
-  ],
+  "include": ["**/*.ts"],
 
-  "exclude": [
-    "**/*.d.ts",
-  ],
+  "exclude": ["**/*.d.ts"],
 
   "compilerOptions": {
     "strict": true,
+
+    // Must be set explicitly (TS5011). Keeps "prepublishOnly" emitting index.d.ts
+    // and format/*.d.ts at the top of build/types, which is what gets published.
+    "rootDir": "./lib/time",
+
     "paths": {
-      "/lib/*": [ "../../../node_modules/@item-enonic-types/lib-*" ,"./lib/*"]
+      "/lib/*": ["../../../node_modules/@item-enonic-types/lib-*", "./lib/*"]
     },
     "skipLibCheck": true,
     "types": ["@item-enonic-types/nashorn-env"]
-  },
+  }
 }

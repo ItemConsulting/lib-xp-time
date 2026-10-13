@@ -1,4 +1,4 @@
-import type { ZoneId, Locale } from "/lib/time";
+import type { Locale, ZoneId } from "/lib/time";
 import type { FormatStyle } from "/lib/time/format/format-style";
 
 /**
